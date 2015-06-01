@@ -1,0 +1,38 @@
+.DS_Store
+.svn
+build/*
+
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace/xcuserdata/*
+*.xcworkspace/xcshareddata/*
+*.xcodeproj/xcuserdata/*
+*.xcodeproj/ !*.xcodeproj/project.pbxproj
+
+Pods/*.xcodeproj/xcuserdata/*
+iOSInjectionProject/
+
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+# Cocoapods
+Pods
+Pods/*
+Podfile.lock
+
+# General
+*.orig
+*.swp
+
+# SublimeText
+*.sublime-project
+*.sublime-workspace
+
+# Jetbrains
+.idea/*
