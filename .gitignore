@@ -13,6 +13,9 @@ build/*
 *.xcodeproj/xcuserdata/*
 *.xcodeproj/ !*.xcodeproj/project.pbxproj
 
+resource/*.*
+resource/*
+
 Pods/*.xcodeproj/xcuserdata/*
 iOSInjectionProject/
 

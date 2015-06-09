@@ -14,6 +14,10 @@
 		815B37611B1CA9A2002E262F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 815B37601B1CA9A2002E262F /* Images.xcassets */; };
 		815B37641B1CA9A2002E262F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 815B37621B1CA9A2002E262F /* LaunchScreen.xib */; };
 		815B37701B1CA9A2002E262F /* TravelNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 815B376F1B1CA9A2002E262F /* TravelNoteTests.m */; };
+		818B87A41B2737300058FF50 /* PXCustomTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87A31B2737300058FF50 /* PXCustomTabbarViewController.m */; };
+		818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87A61B27387B0058FF50 /* PXCustomTabbar.m */; };
+		818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */; };
+		818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,14 @@
 		815B37691B1CA9A2002E262F /* TravelNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		815B376E1B1CA9A2002E262F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		815B376F1B1CA9A2002E262F /* TravelNoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelNoteTests.m; sourceTree = "<group>"; };
+		818B87A21B2737300058FF50 /* PXCustomTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXCustomTabbarViewController.h; path = Tab/PXCustomTabbarViewController.h; sourceTree = "<group>"; };
+		818B87A31B2737300058FF50 /* PXCustomTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXCustomTabbarViewController.m; path = Tab/PXCustomTabbarViewController.m; sourceTree = "<group>"; };
+		818B87A51B27387B0058FF50 /* PXCustomTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXCustomTabbar.h; path = Tab/PXCustomTabbar.h; sourceTree = "<group>"; };
+		818B87A61B27387B0058FF50 /* PXCustomTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXCustomTabbar.m; path = Tab/PXCustomTabbar.m; sourceTree = "<group>"; };
+		818B87AB1B273A390058FF50 /* UIView+BGTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BGTouchView.h"; path = "Tab/UIView+BGTouchView.h"; sourceTree = "<group>"; };
+		818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BGTouchView.m"; path = "Tab/UIView+BGTouchView.m"; sourceTree = "<group>"; };
+		818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXChooseTemplateViewController.h; path = Edit/PXChooseTemplateViewController.h; sourceTree = "<group>"; };
+		818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXChooseTemplateViewController.m; path = Edit/PXChooseTemplateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,8 @@
 		815B37521B1CA9A2002E262F /* TravelNote */ = {
 			isa = PBXGroup;
 			children = (
+				818B87AE1B273FA90058FF50 /* Edit */,
+				818B87A11B2737120058FF50 /* Tab */,
 				815B37571B1CA9A2002E262F /* AppDelegate.h */,
 				815B37581B1CA9A2002E262F /* AppDelegate.m */,
 				815B375A1B1CA9A2002E262F /* ViewController.h */,
@@ -117,6 +131,28 @@
 				815B376E1B1CA9A2002E262F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		818B87A11B2737120058FF50 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				818B87AB1B273A390058FF50 /* UIView+BGTouchView.h */,
+				818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */,
+				818B87A21B2737300058FF50 /* PXCustomTabbarViewController.h */,
+				818B87A31B2737300058FF50 /* PXCustomTabbarViewController.m */,
+				818B87A51B27387B0058FF50 /* PXCustomTabbar.h */,
+				818B87A61B27387B0058FF50 /* PXCustomTabbar.m */,
+			);
+			name = Tab;
+			sourceTree = "<group>";
+		};
+		818B87AE1B273FA90058FF50 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */,
+				818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */,
+			);
+			name = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */,
 				815B375C1B1CA9A2002E262F /* ViewController.m in Sources */,
+				818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */,
 				815B37591B1CA9A2002E262F /* AppDelegate.m in Sources */,
 				815B37561B1CA9A2002E262F /* main.m in Sources */,
+				818B87A41B2737300058FF50 /* PXCustomTabbarViewController.m in Sources */,
+				818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +456,7 @@
 				815B37751B1CA9A2002E262F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		815B37761B1CA9A2002E262F /* Build configuration list for PBXNativeTarget "TravelNoteTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +465,7 @@
 				815B37781B1CA9A2002E262F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
