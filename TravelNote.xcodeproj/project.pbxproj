@@ -18,6 +18,8 @@
 		818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87A61B27387B0058FF50 /* PXCustomTabbar.m */; };
 		818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */; };
 		818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */; };
+		BB9EEA6F1B2760C600CF7BAE /* PCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA6E1B2760C600CF7BAE /* PCHomeViewController.m */; };
+		BB9EEA721B2762B500CF7BAE /* PCCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA711B2762B500CF7BAE /* PCCustomSegmentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,11 @@
 		818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BGTouchView.m"; path = "Tab/UIView+BGTouchView.m"; sourceTree = "<group>"; };
 		818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXChooseTemplateViewController.h; path = Edit/PXChooseTemplateViewController.h; sourceTree = "<group>"; };
 		818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXChooseTemplateViewController.m; path = Edit/PXChooseTemplateViewController.m; sourceTree = "<group>"; };
+		BB9EEA6A1B275CF300CF7BAE /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
+		BB9EEA6D1B2760C600CF7BAE /* PCHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCHomeViewController.h; sourceTree = "<group>"; };
+		BB9EEA6E1B2760C600CF7BAE /* PCHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCHomeViewController.m; sourceTree = "<group>"; };
+		BB9EEA701B2762B500CF7BAE /* PCCustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCustomSegmentView.h; sourceTree = "<group>"; };
+		BB9EEA711B2762B500CF7BAE /* PCCustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCustomSegmentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +100,10 @@
 		815B37521B1CA9A2002E262F /* TravelNote */ = {
 			isa = PBXGroup;
 			children = (
+				BB9EEA681B275C9A00CF7BAE /* Macro */,
 				818B87AE1B273FA90058FF50 /* Edit */,
 				818B87A11B2737120058FF50 /* Tab */,
+				BB9EEA6B1B27604300CF7BAE /* Controllers */,
 				815B37571B1CA9A2002E262F /* AppDelegate.h */,
 				815B37581B1CA9A2002E262F /* AppDelegate.m */,
 				815B375A1B1CA9A2002E262F /* ViewController.h */,
@@ -153,6 +162,33 @@
 				818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */,
 			);
 			name = Edit;
+			sourceTree = "<group>";
+		};
+		BB9EEA681B275C9A00CF7BAE /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				BB9EEA6A1B275CF300CF7BAE /* UIConstants.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		BB9EEA6B1B27604300CF7BAE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB9EEA6C1B27609600CF7BAE /* Home */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BB9EEA6C1B27609600CF7BAE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BB9EEA6D1B2760C600CF7BAE /* PCHomeViewController.h */,
+				BB9EEA6E1B2760C600CF7BAE /* PCHomeViewController.m */,
+				BB9EEA701B2762B500CF7BAE /* PCCustomSegmentView.h */,
+				BB9EEA711B2762B500CF7BAE /* PCCustomSegmentView.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,9 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */,
+				BB9EEA721B2762B500CF7BAE /* PCCustomSegmentView.m in Sources */,
 				815B375C1B1CA9A2002E262F /* ViewController.m in Sources */,
 				818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */,
 				815B37591B1CA9A2002E262F /* AppDelegate.m in Sources */,
+				BB9EEA6F1B2760C600CF7BAE /* PCHomeViewController.m in Sources */,
 				815B37561B1CA9A2002E262F /* main.m in Sources */,
 				818B87A41B2737300058FF50 /* PXCustomTabbarViewController.m in Sources */,
 				818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */,
