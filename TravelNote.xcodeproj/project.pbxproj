@@ -20,6 +20,8 @@
 		818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */; };
 		BB9EEA771B27DFDF00CF7BAE /* PCCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA741B27DFDF00CF7BAE /* PCCustomSegmentView.m */; };
 		BB9EEA781B27DFDF00CF7BAE /* PCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA761B27DFDF00CF7BAE /* PCHomeViewController.m */; };
+		BB9EEA7C1B2815D300CF7BAE /* PCDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA7B1B2815D300CF7BAE /* PCDisplayTableViewCell.m */; };
+		BB9EEA7E1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB9EEA7D1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		BB9EEA741B27DFDF00CF7BAE /* PCCustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCustomSegmentView.m; sourceTree = "<group>"; };
 		BB9EEA751B27DFDF00CF7BAE /* PCHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCHomeViewController.h; sourceTree = "<group>"; };
 		BB9EEA761B27DFDF00CF7BAE /* PCHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCHomeViewController.m; sourceTree = "<group>"; };
+		BB9EEA7A1B2815D300CF7BAE /* PCDisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDisplayTableViewCell.h; sourceTree = "<group>"; };
+		BB9EEA7B1B2815D300CF7BAE /* PCDisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDisplayTableViewCell.m; sourceTree = "<group>"; };
+		BB9EEA7D1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCDisplayTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +109,7 @@
 				818B87AE1B273FA90058FF50 /* Edit */,
 				818B87A11B2737120058FF50 /* Tab */,
 				BB9EEA6B1B27604300CF7BAE /* Controllers */,
+				BB9EEA791B28154D00CF7BAE /* Views */,
 				815B37571B1CA9A2002E262F /* AppDelegate.h */,
 				815B37581B1CA9A2002E262F /* AppDelegate.m */,
 				815B375A1B1CA9A2002E262F /* ViewController.h */,
@@ -191,6 +197,16 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		BB9EEA791B28154D00CF7BAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB9EEA7A1B2815D300CF7BAE /* PCDisplayTableViewCell.h */,
+				BB9EEA7B1B2815D300CF7BAE /* PCDisplayTableViewCell.m */,
+				BB9EEA7D1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +290,7 @@
 				815B375F1B1CA9A2002E262F /* Main.storyboard in Resources */,
 				815B37641B1CA9A2002E262F /* LaunchScreen.xib in Resources */,
 				815B37611B1CA9A2002E262F /* Images.xcassets in Resources */,
+				BB9EEA7E1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +313,7 @@
 				818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */,
 				815B37591B1CA9A2002E262F /* AppDelegate.m in Sources */,
 				BB9EEA771B27DFDF00CF7BAE /* PCCustomSegmentView.m in Sources */,
+				BB9EEA7C1B2815D300CF7BAE /* PCDisplayTableViewCell.m in Sources */,
 				815B37561B1CA9A2002E262F /* main.m in Sources */,
 				818B87A41B2737300058FF50 /* PXCustomTabbarViewController.m in Sources */,
 				BB9EEA781B27DFDF00CF7BAE /* PCHomeViewController.m in Sources */,

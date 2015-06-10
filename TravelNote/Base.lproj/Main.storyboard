@@ -73,11 +73,30 @@
                     <view key="view" contentMode="scaleToFill" id="sGM-G6-eRC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="W7e-zQ-kW5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Mj-97-0Jg" id="FqX-Ao-z1F"/>
+                                    <outlet property="delegate" destination="6Mj-97-0Jg" id="1vp-TC-juJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="W7e-zQ-kW5" secondAttribute="trailing" id="B4Q-18-q32"/>
+                            <constraint firstItem="W7e-zQ-kW5" firstAttribute="top" secondItem="FCy-iH-hUX" secondAttribute="bottom" id="Bjh-lj-p9S"/>
+                            <constraint firstItem="W7e-zQ-kW5" firstAttribute="leading" secondItem="sGM-G6-eRC" secondAttribute="leading" id="Er9-DY-FvH"/>
+                            <constraint firstAttribute="bottom" secondItem="W7e-zQ-kW5" secondAttribute="bottom" constant="50" id="rja-8o-fxs"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="mainpage" id="rAg-gi-Qfg"/>
                     <navigationItem key="navigationItem" id="Ygc-Xp-gat"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="W7e-zQ-kW5" id="NWg-vN-jMl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJT-by-RSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
