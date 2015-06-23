@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PCPhotosManager.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,13 @@
     // 只是为了去除navigationbar底部separator
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    // 设置navigationbar的外表
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGBA(57, 176, 110, 1.0f)];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    
+    // 显示第一次调用
+    [PCPhotosManager shared];
     
     return YES;
 }

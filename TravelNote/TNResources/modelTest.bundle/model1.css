@@ -1,0 +1,950 @@
+/*重设*/
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-family: monospace;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+/*	-webkit-transform: translate3d(0,0,0);
+	-webkit-perspective: 1000;*/
+}
+/* 
+	图片预加载
+	经过测试，同一个资源只会加载一次，所以通过预加载
+	触发window.load的效果从而达到想要的效果 
+	一般3个的话就可以达到想要的效果了
+ */
+ .my-model-preload {
+ 	background-image: url(model1/2/2.png), url(model1/3/3.png), url(model1/1/1.png);
+ 	display: none;
+ }
+/**/
+.swiper-container {
+	height: 100%;
+}
+/* model 1 */
+.my-model-1 {
+	width: 100%; height: 100%;
+	position: relative;
+	overflow: hidden;
+
+	-webkit-backface-visibility: hidden;
+	-webkit-transform:translate3d(0,0,0);
+	-webkit-perspective: 1000;
+}
+/* page 1*/
+.my-m1p1-img {
+	position: relative;
+	height: 70%;
+	overflow: hidden;
+	-webkit-transition: all 1s cubic-bezier(0.42, 0, 0.46, 1.29) 0.5s;
+	-o-transition: all 1s cubic-bezier(0.42, 0, 0.46, 1.29) 0.5s;
+	transition: all 1s cubic-bezier(0.42, 0, 0.46, 1.29) 0.5s;
+}
+.my-m1p1-img > img {
+	position: absolute;
+}
+.my-m1p1-img-h > img {
+	height: 100%; left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+/* 竖直 */
+.my-m1p1-img-v > img {
+	width: 100%; 
+	/* 下面是居中显示 */
+	/*top: 50%;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);*/
+	/* 下面是top 0的显示 */
+	top: 0;
+}
+.my-m1p1-title {
+	z-index: 10;
+	margin-top: 20px;
+	padding: 7px;
+	color: white;
+	font-size: 1em;
+	text-align: center;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.14);
+
+	-webkit-transition: all 0.5s ease-in-out 1s;
+	-o-transition: all 0.5s ease-in-out 1s;
+	transition: all 0.5s ease-in-out 1s;
+}
+.my-m1p1-title > p {
+	display: inline-block;
+}
+.my-m1p1-text {
+	display: inline-block;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+	z-index: 10;
+    margin-top: 30px;
+}
+.my-m1p1-text > span {
+    width: 1em;
+    font-size: 0.9em;
+    padding-top: 8px;
+    line-height: 1.3em;
+    vertical-align:top;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: inline-block;
+    padding-left: 1em;
+}
+.my-m1p1-text > span:nth-child(3n) {
+	-webkit-transition: all 0.5s ease-in-out 1.5s;
+    transition: all 0.5s ease-in-out 1.5s;
+}
+.my-m1p1-text > span:nth-child(3n+1) {
+	-webkit-transition: all 0.5s ease-in-out 2s;
+    transition: all 0.5s ease-in-out 2s;
+}
+.my-m1p1-text > span:nth-child(3n+2) {
+	-webkit-transition: all 0.5s ease-in-out 2.5s;
+    transition: all 0.5s ease-in-out 2.5s;
+}
+.my-m1p1-text > span:last-child {
+	padding-left: 0;
+}
+.my-m1p1-cover {
+	bottom: 0;
+	position: absolute;
+	z-index: 10;
+	
+	background-image: url(model1/1/1.png), -webkit-gradient(linear,50% 0,0 100%, from(#a9edef), to(#a9edef));
+	background-image: url(model1/1/1.png), -webkit-linear-gradient(top, #a9edef, #a9edef);
+	background-image: url(model1/1/1.png), -moz-linear-gradient(top, #a9edef, #a9edef);
+	background-image: url(model1/1/1.png), -o-linear-gradient(top,  #a9edef, #a9edef);
+	background-image: url(model1/1/1.png), -ms-linear-gradient(top,  #a9edef, #a9edef);
+	background-image: url(model1/1/1.png), gradient(linear,50% 0,0 100%, from(#a9edef), to(#a9edef));
+	background-repeat: repeat-x, repeat-x;
+	background-position: 20px 0, 0 20px;
+	background-size: 40px 28px, 100% 100%;
+
+	height: 40%;width: 100%;
+	text-align: center;
+
+
+	-webkit-transition: all 1s cubic-bezier(0.28, 0.68, 0.31, 1.28);
+	-o-transition: all 1s cubic-bezier(0.28, 0.68, 0.31, 1.28);
+	transition: all 1s cubic-bezier(0.28, 0.68, 0.31, 1.28);
+}
+/*  动画触发  */
+.my-m1p1-pattern {
+	width: 100%;
+	position: absolute;
+	bottom: 249px;
+	display: block;
+}
+.my-model-out .my-m1p1-cover {
+	/*opacity: 0;*/
+	-webkit-transform: translate(0, 100%);
+	-ms-transform: translate(0, 100%);
+	-o-transform: translate(0, 100%);
+	transform: translate(0, 100%);
+}
+.my-model-out .my-m1p1-title {
+	-webkit-transform: translate(400px, 0);
+	-ms-transform: translate(400px, 0);
+	-o-transform: translate(400px, 0);
+	transform: translate(400px, 0);
+	opacity: 0;
+}
+.my-model-out .my-m1p1-text>span  {
+	opacity: 0;
+	-webkit-transform: translate(-400px, 0);
+	-moz-transform: translate(-400px, 0);
+	-ms-transform: translate(-400px, 0);
+	-o-transform: translate(-400px, 0);
+	transform: translate(-400px, 0);
+}
+.my-model-out .my-m1p1-img {
+	opacity: 0;
+	-webkit-transform: scale(0.8, 0.8);
+	-ms-transform: scale(0.8, 0.8);
+	-o-transform: scale(0.8, 0.8);
+	transform: scale(0.8, 0.8);
+}
+/* page2 */
+.my-m1p2-container {
+	width: 100%; height: 100%;
+	text-align: center;
+	overflow: hidden;
+	-webkit-transition: all 0.6s cubic-bezier(0.35, -0.01, 0.73, 1.33) 0.3s;
+	-o-transition: all 0.6s cubic-bezier(0.35, -0.01, 0.73, 1.33) 0.3s;
+	transition: all 0.6s cubic-bezier(0.35, -0.01, 0.73, 1.33) 0.3s;
+
+	-webkit-transform: perspective(400px);
+	-ms-transform: perspective(400px);
+	-o-transform: perspective(400px);
+	transform: perspective(400px);
+}
+.my-m1p2-cover {
+	width: 100%;height: 100%;
+	position: absolute;
+	background-image: url(model1/2/2.png);
+	background-position: center, center;
+	background-size: cover;
+	z-index: 10;
+}
+/* v代表竖屏 h代表横屏的样式 */
+.my-m1p2-img {
+	top: 20vh;
+	z-index: 1;
+	position: relative;
+	height: 37vh; width: 37vh; /*vh 和 vw 是相对于视口的高或者宽的相对单位*/
+	overflow: hidden;
+
+	display: inline-block;
+}
+.my-m1p2-img > img {
+	position: absolute;
+}
+.my-m1p2-img-h > img {
+	height: 100%;left: 50%;
+
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.my-m1p2-img-v > img {
+	/* 偏上显示 */
+	width: 100%;top: 50%;left: 0;
+	-webkit-transform: translate(0, -40%);
+	-ms-transform: translate(0, -40%);
+	-o-transform: translate(0, -40%);
+	transform: translate(0, -40%);
+
+	/* 居中显示 */
+/*	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);*/
+}
+
+.my-m1p2-content {
+	width: 100%;
+	z-index: 100;
+	top: 65vh;
+	line-height: 3em;
+	position: absolute;
+
+
+	-webkit-transition: all 1s cubic-bezier(0.53, -0.08, 0.54, 1.21) 0.8s;
+	-o-transition: all 1s cubic-bezier(0.53, -0.08, 0.54, 1.21) 0.8s;
+	transition: all 1s cubic-bezier(0.53, -0.08, 0.54, 1.21) 0.8s;
+}
+.my-m1p2-content > h5 {
+	font-size: 1.1em;
+}
+.my-m1p2-content > h6 {
+	font-size: 0.8em;
+}
+.my-m1p2-arrow {
+	width: 130px;
+}
+.my-model-out .my-m1p2-container {
+	opacity: 0;
+	-webkit-transform: perspective(400px) rotateX(10deg) translate(0, -15%);
+	-ms-transform: perspective(400px) rotateX(10deg) translate(0, -15%);
+	-o-transform: perspective(400px) rotateX(10deg) translate(0, -15%);
+	transform: perspective(400px) rotateX(10deg) translate(0, -15%);
+}
+.my-model-out .my-m1p2-content {
+	-webkit-transform: rotateY(360deg);
+	-ms-transform: rotateY(360deg);
+	-o-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+/* page3 */
+.my-m1p3-container {
+	width: 100%; height: 100%;
+
+	overflow: hidden;
+
+	-webkit-transition: all 1s cubic-bezier(0.35, -0.01, 0.42, 1.13);
+	-o-transition: all 1s cubic-bezier(0.35, -0.01, 0.42, 1.13);
+	transition: all 1s cubic-bezier(0.35, -0.01, 0.42, 1.13);
+}
+.my-m1p3-cover {
+	z-index: 10;
+	position: absolute;
+	width: 100%;height: 100%;
+
+	background-image: url(model1/3/3.png);
+	background-position: center center;
+	background-size: cover;
+
+	text-align: center;
+}
+.my-m1p3-pattern {
+	width: 70px;
+	margin-top: 40px;
+}
+.my-m1p3-img {
+	float: bottom;
+	width: 100%; height: 100%;
+	bottom: 0;
+	position: relative;
+}
+.my-m1p3-img > img {
+	position: absolute;
+}
+.my-m1p3-img-h > img {
+	left: 50%; bottom: 0;
+	height: 70%;
+
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.my-m1p3-img-v > img {
+	/* 暂时未定 */
+	width: 100%;top: 30%;
+}
+.my-m1p3-text {
+	text-align: center;
+	margin-top: 15px; 
+	color: #dc3550;
+}
+.my-m1p3-text > p {
+	width: 160px;
+	font-weight: 700;
+	line-height: 2em;
+	font-size: 0.9em;
+	display: inline-block;
+}
+.my-m1p3-text, .my-m1p3-pattern {
+	-webkit-transition: all 0.7s ease-in-out 0.8s;
+	-o-transition: all 0.7s ease-in-out 0.8s;
+	transition: all 0.7s ease-in-out 0.8s;
+}
+/* 触发动画 */
+.my-model-out .my-m1p3-container {
+	opacity: 0;
+	-webkit-transform: scale(0.6,0.6) translate(0, -80%);
+	-ms-transform: scale(0.6,0.6) translate(0, -80%);
+	-o-transform: scale(0.6,0.6) translate(0, -80%);
+	transform: scale(0.6,0.6) translate(0, -80%);
+}
+.my-model-out .my-m1p3-pattern, .my-model-out .my-m1p3-text {
+	opacity: 0;
+	-webkit-transform: scale(3, 3);
+	-ms-transform: scale(3, 3);
+	-o-transform: scale(3, 3);
+	transform: scale(3, 3);
+}
+/* page4  */
+.my-m1p4-container {
+	width: 100%; height: 100%;
+	position: relative;
+	overflow: hidden;
+	
+	-webkit-transform-origin: 0 50%;
+	-moz-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	-o-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+
+	-webkit-transition: all .6s cubic-bezier(0.38, 0.09, 0.32, 1.14);
+	-o-transition: all .6s cubic-bezier(0.38, 0.09, 0.32, 1.14);
+	transition: all .6s cubic-bezier(0.38, 0.09, 0.32, 1.14);
+}
+.my-m1p4-cover {
+	width: 100%; height: 100%;
+	position: absolute;
+	z-index: 10;
+	text-align: center;
+
+	background-image: url(model1/4/4.png);
+	background-position: center center;
+	background-size: contain;
+}
+.my-m1p4-img {
+	width: 100%; height: 100%;
+
+	position: relative;
+}
+.my-m1p4-img > img {
+	
+	position: absolute;
+	/* left 一般应该是50% 的 也就是图片居中 但是这张图片并不是居中的 */
+	left: 50%;top: 50%;
+	
+	
+}
+.my-m1p4-img-h > img {
+	height: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.my-m1p4-img-v > img {
+	width: 40vh;
+	-webkit-transform: translate(-50%, -40%);
+	-ms-transform: translate(-50%, -40%);
+	-o-transform: translate(-50%, -40%);
+	transform: translate(-50%, -40%);
+}
+
+.my-m1p4-text {
+	color: #334565;
+	width: 100%;right: 0px;
+	top: 75%;
+	display: inline-block;
+    direction: rtl;
+    text-align: center;
+    position: absolute;
+	z-index: 10;
+
+	-webkit-transition: all 0.5s ease-in-out 0.5s;
+	-o-transition: all 0.5s ease-in-out 0.5s;
+	transition: all 0.5s ease-in-out 0.5s;
+
+	-webkit-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	-o-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+}
+.my-m1p4-text > span {
+	width: 1em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: inline-block;
+    padding-left: 1em;
+}
+.my-m1p4-text > span:first-child {
+	padding-right: 15px;
+	border-right: 1px black solid;
+}
+.my-m1p4-text > span:last-child {
+	padding-left: 0px;
+}
+
+/* 动画效果 */
+.my-model-out .my-m1p4-container {
+	opacity: 0;
+	-webkit-transform: rotateY(60deg);
+	-ms-transform: rotateY(60deg);
+	-o-transform: rotateY(60deg);
+	transform: rotateY(60deg);
+}
+.my-model-out .my-m1p4-text {
+	-webkit-transform: scale(0, 1);
+	-ms-transform: scale(0, 1);
+	-o-transform: scale(0, 1);
+	transform: scale(0, 1);
+}
+/* page5 */
+
+.my-m1p5-container {
+	width: 100%; height: 100%;
+	overflow: hidden;
+	background-image: url(model1/5/tree_bark.png);
+	background-size: 200px 200px;
+	background-repeat: repeat;
+	position: relative;
+	text-align: center;
+}
+.my-m1p5-cover {
+	margin-top: 50px;
+	position: relative;
+	width: 48vh;height: 52%;
+	display: inline-block;
+
+	-webkit-transition: all 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	-o-transition: all 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	transition: all 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.my-m1p5-outer {
+	position: absolute;
+	z-index: 10;
+	background-image: url(model1/5/pic.png);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;height: 100%;
+	
+}
+.my-m1p5-img {
+	overflow: hidden;
+	position: relative;
+	width: 65%; height: 80%;
+	top: 4vh;
+	left: 0; right: 0;
+	margin: auto;
+}
+.my-m1p5-img > img {	
+	position: absolute;
+
+}
+.my-m1p5-img-h > img {
+	left: 50%;height: 100%;
+
+	/* 默认居中显示 */
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.my-m1p5-img-v > img {
+	width: 100%;left: 0;
+	top: 50%;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+.my-m1p5-text {
+	font-size: 1.1em;
+	color: #334565;
+}
+.my-m1p5-text > div {
+	display: inline-block;
+	border: 1px #334565 solid;
+	direction: rtl;
+    text-align: center;
+
+    -webkit-transition: all 1s ease-in-out 0.6s;
+    -o-transition: all 1s ease-in-out 0.6s;
+    transition: all 1s ease-in-out 0.6s;
+}
+.my-m1p5-text span {
+	width: 1em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: inline-block;
+    padding: 0.5em 0;
+    padding-left: 1em;
+}
+.my-m1p5-text span:first-child {
+	padding-right: 1em;
+}
+.my-m1p5-text span:nth-child(3n+1) {
+	-webkit-transition: all 0.5s ease-in-out 0.6s;
+	-o-transition: all 0.5s ease-in-out 0.6s;
+	transition: all 0.5s ease-in-out 0.6s;
+}
+.my-m1p5-text span:nth-child(3n+2) {
+	-webkit-transition: all 0.5s ease-in-out 1s;
+	-o-transition: all 0.5s ease-in-out 1s;
+	transition: all 0.5s ease-in-out 1s;
+}
+.my-m1p5-text span:nth-child(3n+3) {
+	-webkit-transition: all 0.5s ease-in-out 1.4s;
+	-o-transition: all 0.5s ease-in-out 1.4s;
+	transition: all 0.5s ease-in-out 1.4s;
+}
+/* 动画 */
+.my-model-out .my-m1p5-cover {
+	opacity: 0;
+	-webkit-transform: scale(3, 3);
+	-ms-transform: scale(3, 3);
+	-o-transform: scale(3, 3);
+	transform: scale(3, 3);
+}
+.my-model-out .my-m1p5-text span {
+
+	opacity: 0;
+	-webkit-transform: rotateY(270deg);
+	-ms-transform: rotateY(270deg);
+	-o-transform: rotateY(270deg);
+	transform: rotateY(270deg);
+}
+.my-model-out .my-m1p5-text div {
+	opacity: 0;
+}
+/* page6 */
+.my-m1p6-container {
+	width: 100%; height: 100%;
+	overflow: hidden;
+	position: relative;
+	background-image: url(model1/common/swirl_pattern.png);
+	background-repeat: repeat;
+	background-size: 200px 200px;
+	position: relative;
+
+	text-align: center;
+}
+.my-m1p6-cover {
+	width: 44vh; height: 72%;
+	display: inline-block;
+	position: relative;
+
+	-webkit-transform-origin: 50% 0;
+	-moz-transform-origin: 50% 0;
+	-ms-transform-origin: 50% 0;
+	-o-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+
+	-webkit-transition: all 0.8s cubic-bezier(0.43, 0.36, 0.63, 1.61);
+	-o-transition: all 0.8s cubic-bezier(0.43, 0.36, 0.63, 1.61);
+	transition: all 0.8s cubic-bezier(0.43, 0.36, 0.63, 1.61);
+}
+.my-m1p6-outer {
+	width: 100%; height: 100%;
+	position: absolute;
+	z-index: 10;
+	/* 11 18*/
+	background-image: url(model1/6/6.png);
+	background-position: center center;
+	background-size: cover;
+
+}
+.my-m1p6-img {
+	top: 18vh;
+	overflow: hidden;
+	width: 69%;height: 57%;
+	position: relative;
+	display: inline-block;
+}
+.my-m1p6-img > img {
+	position: absolute;
+}
+.my-m1p6-img-h > img {
+	height: 100%;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.my-m1p6-img-v > img {
+	width: 100%;top: 50%; left: 0;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+.my-m1p6-text {
+	text-align: center;
+
+	-webkit-transition: all 0.6s cubic-bezier(0.43, 0.36, 0.63, 1.61) 0.5s;
+	-o-transition: all 0.6s cubic-bezier(0.43, 0.36, 0.63, 1.61) 0.5s;
+	transition: all 0.6s cubic-bezier(0.43, 0.36, 0.63, 1.61) 0.5s;
+}
+.my-m1p6-text > p {
+	width: 250px;
+	color: #334565;
+	line-height: 2em;
+	display: inline-block;
+}
+.my-m1p6-text > hr {
+	height: 2px;
+	width: 60px;
+	margin: auto;
+	margin-top: 20px;
+	position: absolute;
+	left: 0px;right: 0px;
+	background-color: #334565;
+}
+/* 动画 */
+.my-model-out .my-m1p6-cover {
+	-webkit-transform: rotateX(30deg);
+	-ms-transform: rotateX(30deg);
+	-o-transform: rotateX(30deg);
+	transform: rotateX(30deg);
+}
+.my-model-out .my-m1p6-text {
+	opacity: 0;
+	-webkit-transform: scale(0.4, 0.4);
+	-ms-transform: scale(0.4, 0.4);
+	-o-transform: scale(0.4, 0.4);
+	transform: scale(0.4, 0.4);
+}
+/* page7 */
+.my-m1p7-container {
+	width: 100%; height: 100%;
+	overflow: hidden;
+	background-image: url(model1/common/swirl_pattern.png);
+	background-size: 200px 200px;
+	background-repeat: repeat;
+
+	text-align: center;
+}
+.my-m1p7-cover {
+	top: 5%;
+	width: 44vh; height: 56%;
+	position: relative;
+
+	text-align: center;
+	display: inline-block;
+
+	-webkit-transition: all 0.8s cubic-bezier(0.18, 0.96, 0.57, 1.2);
+	-o-transition: all 0.8s cubic-bezier(0.18, 0.96, 0.57, 1.2);
+	transition: all 0.8s cubic-bezier(0.18, 0.96, 0.57, 1.2);
+}
+.my-m1p7-outer {
+	position: absolute;
+	z-index: 10;
+	/*11 14*/
+	
+	width: 100%; height: 100%;
+	background-image: url(model1/7/7.png);
+	background-position: center;
+	background-size: cover;
+}
+.my-m1p7-img {
+	top: 4.5vh;
+	width: 70%; height: 80%;
+
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	opacity: 1;
+}
+.my-m1p7-img > img {
+	position: absolute;
+	opacity: 1;
+}
+.my-m1p7-img-h > img {
+	height: 100%;left: 50%;top: 0;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.my-m1p7-img-v > img {
+	width: 100%;left: 0;top: 50%;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+.my-m1p7-text {
+	top: 8%;
+	width: 100%;
+	z-index: 10;
+	font-size: 1.2em;
+	display: inline-block;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+
+    -webkit-transition: all 0.7s cubic-bezier(0.18, 0.96, 0.57, 1.2) 0.7s;
+    -o-transition: all 0.7s cubic-bezier(0.18, 0.96, 0.57, 1.2) 0.7s;
+    transition: all 0.7s cubic-bezier(0.18, 0.96, 0.57, 1.2) 0.7s;
+}
+.my-m1p7-text > span {
+	width: 1em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: inline-block;
+    padding-left: 1em;
+}
+.my-m1p7-text > span:first-child {
+	padding-right: 15px;
+	border-right: 1px black solid;
+}
+.my-m1p7-text > span:last-child {
+	padding-left: 0px;
+}
+/* 动画 */
+.my-model-out .my-m1p7-cover {
+	-webkit-transform: skewX(-12deg) translate(-100%, 0);
+	-ms-transform: skewX(-12deg) translate(-100%, 0);
+	-o-transform: skewX(-12deg) translate(-100%, 0);
+	transform: skewX(-12deg) translate(-100%, 0);
+}
+.my-model-out .my-m1p7-text {
+	opacity: 0;
+	-webkit-transform: scale(3, 3);
+	-ms-transform: scale(3, 3);
+	-o-transform: scale(3, 3);
+	transform: scale(3, 3);
+}
+/* page8 */	
+.my-m1p8-container {
+	width: 100%; height: 100%;
+	overflow: hidden;
+	background-color: #e7ecf1;
+	text-align: center;
+
+	position: relative;
+}
+.my-m1p8-cover {
+	margin-top: 15%;
+	width: 35vh; height: 35%;
+	position: relative;
+	box-shadow: 1px 1px 15px rgb(163, 163, 163);
+
+	display: inline-block;
+
+	-webkit-transform: rotate(-15deg);
+	-ms-transform: rotate(-15deg);
+	-o-transform: rotate(-15deg);
+	transform: rotate(-15deg);
+
+	-webkit-transition: all 0.7s cubic-bezier(0.18, 0.96, 0.57, 1.2) ;
+	-o-transition: all 0.7s cubic-bezier(0.18, 0.96, 0.57, 1.2) ;
+	transition: all 0.7s cubic-bezier(0.18, 0.96, 0.57, 1.2) ;
+}
+.my-m1p8-outer {
+	position: absolute;
+	z-index: 10;
+	background-size: cover;
+	width: 100%;height: 100%;
+	background-image: url(model1/8/8.png);
+	background-position: center center;
+}
+.my-m1p8-img {
+	width: 100%;height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.my-m1p8-img > img {
+	
+	position: absolute;
+
+	
+}
+.my-m1p8-img-h > img {
+	height: 100%;left: 50%;top: 0;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.my-m1p8-img-v > img {
+	width: 100%;top: 50%;left: 0;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+.my-m1p8-text {
+	top: 8%;
+	color: #334565;
+	width: 100%;
+	margin-top: 25%;
+	z-index: 10;
+	font-size: 1.2em;
+	display: inline-block;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.my-m1p8-text > span {
+	width: 1em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: inline-block;
+    padding-left: 1em;
+}
+.my-m1p8-text > span:last-child {
+	padding-left: 0px;
+}
+
+/* 动画触发 */
+.my-model-out .my-m1p8-cover {
+	-webkit-transform: rotate(0);
+	-ms-transform: rotate(0);
+	-o-transform: rotate(0);
+	transform: rotate(0);
+}
+
+/* 加载界面 */
+
+@-webkit-keyframes circSquare {
+    50% {
+        width: 1.25em;
+        height: 1.25em;
+        border-radius: 50%;
+        background-color: #7D49A2;
+        transform: rotate(0.5turn);
+        box-shadow: -1.5em 0 0 #2ecc71, 1.5em 0 0 #e74c3c, 0 -1.5em 0 #3498db, 0 1.5em 0 #f1c40f;
+    }
+    80%, 100% {
+        transform: rotate(1turn);
+    }
+}
+.my-model-loading {
+	width: 100%;height: 100%;
+	top: 0;left: 0;
+	position: absolute;
+	z-index: 100;
+	background-color: rgb(232, 232, 232);
+}
+.my-model-loading > div {
+  width: 2em;
+  height: 2em;
+  background-color: #9BDE0B;
+  border-radius: 35%;
+  position: absolute;
+  margin: auto;
+  top: 0;bottom: 0;left: 0;right: 0;
+  -webkit-animation: circSquare 1.5s ease-in-out infinite;
+  -o-animation: circSquare 1.5s ease-in-out infinite;
+  animation: circSquare 1.5s ease-in-out infinite;
+}
+/* 响应式 */
+@media screen and (max-height: 600px) {
+	.my-m1p1-text > span {
+		font-size: 0.6em;
+	}
+	.my-m1p1-title {
+		font-size: 0.8em;
+		margin-top: 10px;
+		padding: 3px;
+	}
+
+	.my-m1p4-text {
+		font-size: 0.7em;
+	}
+
+	.my-m1p5-text {
+		font-size: 0.9em;
+	}
+
+	.my-m1p7-text {
+		font-size: 0.9em;
+	}
+	.my-m1p8-text {
+		font-size: 0.95em;
+	}
+}
+@media screen and (min-height: 800px) {
+	
+	.my-m1p4-text {
+		font-size: 1.3em;
+	}
+
+	.my-m1p5-text {
+		font-size: 1.5em;
+	}
+	.my-m1p8-text {
+		font-size: 1.5em;
+	}
+}

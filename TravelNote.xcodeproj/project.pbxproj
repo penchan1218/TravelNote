@@ -18,6 +18,10 @@
 		818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87A61B27387B0058FF50 /* PXCustomTabbar.m */; };
 		818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */; };
 		818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */; };
+		BB09CAB91B380D2E00C154CF /* modelTest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BB09CAB81B380D2E00C154CF /* modelTest.bundle */; };
+		BB5DBE481B2DA8AF007BDCE0 /* PCBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5DBE471B2DA8AF007BDCE0 /* PCBaseWebViewController.m */; };
+		BB9E6BC71B395003002907D6 /* PCPhotosManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9E6BC61B395003002907D6 /* PCPhotosManager.m */; };
+		BB9E6BCD1B3958CC002907D6 /* NSObject+PCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9E6BCC1B3958CC002907D6 /* NSObject+PCLog.m */; };
 		BB9EEA771B27DFDF00CF7BAE /* PCCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA741B27DFDF00CF7BAE /* PCCustomSegmentView.m */; };
 		BB9EEA781B27DFDF00CF7BAE /* PCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA761B27DFDF00CF7BAE /* PCHomeViewController.m */; };
 		BB9EEA7C1B2815D300CF7BAE /* PCDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA7B1B2815D300CF7BAE /* PCDisplayTableViewCell.m */; };
@@ -56,6 +60,14 @@
 		818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BGTouchView.m"; path = "Tab/UIView+BGTouchView.m"; sourceTree = "<group>"; };
 		818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXChooseTemplateViewController.h; path = Edit/PXChooseTemplateViewController.h; sourceTree = "<group>"; };
 		818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXChooseTemplateViewController.m; path = Edit/PXChooseTemplateViewController.m; sourceTree = "<group>"; };
+		BB09CAB81B380D2E00C154CF /* modelTest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = modelTest.bundle; sourceTree = "<group>"; };
+		BB5DBE461B2DA8AF007BDCE0 /* PCBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBaseWebViewController.h; sourceTree = "<group>"; };
+		BB5DBE471B2DA8AF007BDCE0 /* PCBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBaseWebViewController.m; sourceTree = "<group>"; };
+		BB9E6BC51B395002002907D6 /* PCPhotosManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCPhotosManager.h; sourceTree = "<group>"; };
+		BB9E6BC61B395003002907D6 /* PCPhotosManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCPhotosManager.m; sourceTree = "<group>"; };
+		BB9E6BCB1B3958CC002907D6 /* NSObject+PCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PCLog.h"; sourceTree = "<group>"; };
+		BB9E6BCC1B3958CC002907D6 /* NSObject+PCLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PCLog.m"; sourceTree = "<group>"; };
+		BB9E6BCE1B395A89002907D6 /* TravelNote-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TravelNote-Prefix.pch"; sourceTree = "<group>"; };
 		BB9EEA6A1B275CF300CF7BAE /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		BB9EEA731B27DFDF00CF7BAE /* PCCustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCustomSegmentView.h; sourceTree = "<group>"; };
 		BB9EEA741B27DFDF00CF7BAE /* PCCustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCustomSegmentView.m; sourceTree = "<group>"; };
@@ -105,10 +117,13 @@
 		815B37521B1CA9A2002E262F /* TravelNote */ = {
 			isa = PBXGroup;
 			children = (
+				BB09CA781B38092B00C154CF /* TNResources */,
 				BB9EEA681B275C9A00CF7BAE /* Macro */,
 				818B87AE1B273FA90058FF50 /* Edit */,
 				818B87A11B2737120058FF50 /* Tab */,
+				BB9E6BC91B395863002907D6 /* Categories */,
 				BB9EEA6B1B27604300CF7BAE /* Controllers */,
+				BB9E6BC41B394F90002907D6 /* Models */,
 				BB9EEA791B28154D00CF7BAE /* Views */,
 				815B37571B1CA9A2002E262F /* AppDelegate.h */,
 				815B37581B1CA9A2002E262F /* AppDelegate.m */,
@@ -127,6 +142,7 @@
 			children = (
 				815B37541B1CA9A2002E262F /* Info.plist */,
 				815B37551B1CA9A2002E262F /* main.m */,
+				BB9E6BCE1B395A89002907D6 /* TravelNote-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,6 +186,49 @@
 			name = Edit;
 			sourceTree = "<group>";
 		};
+		BB09CA781B38092B00C154CF /* TNResources */ = {
+			isa = PBXGroup;
+			children = (
+				BB09CAB81B380D2E00C154CF /* modelTest.bundle */,
+			);
+			path = TNResources;
+			sourceTree = "<group>";
+		};
+		BB5DBE451B2DA847007BDCE0 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				BB5DBE461B2DA8AF007BDCE0 /* PCBaseWebViewController.h */,
+				BB5DBE471B2DA8AF007BDCE0 /* PCBaseWebViewController.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		BB9E6BC41B394F90002907D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB9E6BC51B395002002907D6 /* PCPhotosManager.h */,
+				BB9E6BC61B395003002907D6 /* PCPhotosManager.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB9E6BC91B395863002907D6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BB9E6BCA1B39588D002907D6 /* Log */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		BB9E6BCA1B39588D002907D6 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				BB9E6BCB1B3958CC002907D6 /* NSObject+PCLog.h */,
+				BB9E6BCC1B3958CC002907D6 /* NSObject+PCLog.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		BB9EEA681B275C9A00CF7BAE /* Macro */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +240,7 @@
 		BB9EEA6B1B27604300CF7BAE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB5DBE451B2DA847007BDCE0 /* Web */,
 				BB9EEA6C1B27609600CF7BAE /* Home */,
 			);
 			path = Controllers;
@@ -291,6 +351,7 @@
 				815B37641B1CA9A2002E262F /* LaunchScreen.xib in Resources */,
 				815B37611B1CA9A2002E262F /* Images.xcassets in Resources */,
 				BB9EEA7E1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib in Resources */,
+				BB09CAB91B380D2E00C154CF /* modelTest.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,11 +370,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */,
+				BB5DBE481B2DA8AF007BDCE0 /* PCBaseWebViewController.m in Sources */,
 				815B375C1B1CA9A2002E262F /* ViewController.m in Sources */,
 				818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */,
 				815B37591B1CA9A2002E262F /* AppDelegate.m in Sources */,
 				BB9EEA771B27DFDF00CF7BAE /* PCCustomSegmentView.m in Sources */,
 				BB9EEA7C1B2815D300CF7BAE /* PCDisplayTableViewCell.m in Sources */,
+				BB9E6BCD1B3958CC002907D6 /* NSObject+PCLog.m in Sources */,
+				BB9E6BC71B395003002907D6 /* PCPhotosManager.m in Sources */,
 				815B37561B1CA9A2002E262F /* main.m in Sources */,
 				818B87A41B2737300058FF50 /* PXCustomTabbarViewController.m in Sources */,
 				BB9EEA781B27DFDF00CF7BAE /* PCHomeViewController.m in Sources */,
@@ -443,7 +507,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "TravelNote/TravelNote-Prefix.pch";
 				INFOPLIST_FILE = TravelNote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -453,7 +519,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "TravelNote/TravelNote-Prefix.pch";
 				INFOPLIST_FILE = TravelNote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

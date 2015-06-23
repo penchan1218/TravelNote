@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cS1-ND-YAC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Uk8-XQ-3D6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="1" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.38431372549999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -33,7 +33,7 @@
                         <viewControllerLayoutGuide type="bottom" id="IVX-7J-avN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="73b-72-cRb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="1" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.83049665365561387" green="0.24640733382517019" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -62,6 +62,41 @@
             </objects>
             <point key="canvasLocation" x="675.5" y="189.5"/>
         </scene>
+        <!--Base Web View Controller-->
+        <scene sceneID="LMH-ve-e3p">
+            <objects>
+                <viewController storyboardIdentifier="PCBaseWebViewController" id="BNU-3M-708" customClass="PCBaseWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="edA-28-sZW"/>
+                        <viewControllerLayoutGuide type="bottom" id="6TP-pc-5oe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zfZ-R7-edQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqU-Fl-JFO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fqU-Fl-JFO" secondAttribute="bottom" id="3yV-gm-HRq"/>
+                            <constraint firstItem="fqU-Fl-JFO" firstAttribute="top" secondItem="edA-28-sZW" secondAttribute="bottom" id="d4b-Fg-6F6"/>
+                            <constraint firstAttribute="trailing" secondItem="fqU-Fl-JFO" secondAttribute="trailing" id="v2n-75-Ec5"/>
+                            <constraint firstItem="fqU-Fl-JFO" firstAttribute="leading" secondItem="zfZ-R7-edQ" secondAttribute="leading" id="zrs-pe-tXR"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="fqU-Fl-JFO" id="vwe-tu-Qml"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tR3-e4-4DJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649" y="-766"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="luB-k3-Q6y">
             <objects>
@@ -71,7 +106,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6Lz-8V-pqq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sGM-G6-eRC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="1" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="W7e-zQ-kW5">
@@ -154,7 +189,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hDK-Dv-Ikl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3mD-rZ-0tK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="1" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,7 +217,7 @@
                         <viewControllerLayoutGuide type="bottom" id="orF-b7-atA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lER-Be-oyo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.25160982937387638" green="0.93333333330000001" blue="0.48187959226507882" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

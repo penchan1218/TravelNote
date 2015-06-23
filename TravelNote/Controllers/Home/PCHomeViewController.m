@@ -9,6 +9,7 @@
 #import "PCHomeViewController.h"
 #import "PCCustomSegmentView.h"
 #import "PCDisplayTableViewCell.h"
+#import "PCBaseWebViewController.h"
 
 @interface PCHomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -77,6 +78,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"点击，进入相关页面。");
+    PCBaseWebViewController *baseWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"PCBaseWebViewController"];
+    [self.navigationController pushViewController:baseWebView animated:YES];
 }
 
 @end
