@@ -7,7 +7,11 @@
 //
 
 #import "PCPhotosManager.h"
-#import <AssetsLibrary/AssetsLibrary.h>
+
+typedef NS_ENUM(NSUInteger, PhotoType) {
+    Thumbnail,
+    AspectRatioThumbnail
+};
 
 static PCPhotosManager *__sharedInstance = nil;
 
@@ -42,7 +46,15 @@ static PCPhotosManager *__sharedInstance = nil;
                              }];
 }
 
-- (void)takeOutPhotoAtIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock {
+- (void)takeOutThumbnailPhotoAtIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock {
+    [self takeOutPhotoOfType:Thumbnail atIndex:index usingBlock:handlerBlock failureBlock:failureBlock];
+}
+
+- (void)takeOutAspectRatioThumbnailPhotoAtIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock {
+    [self takeOutPhotoOfType:AspectRatioThumbnail atIndex:index usingBlock:handlerBlock failureBlock:failureBlock];
+}
+
+- (void)takeOutPhotoOfType:(PhotoType)photoType atIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock {
     if (index >= _assets.count) {
         [self logWarningText:@"index越界。"];
         return ;
@@ -55,7 +67,16 @@ static PCPhotosManager *__sharedInstance = nil;
     
     ALAssetsLibrary *assetsLib = [[ALAssetsLibrary alloc] init];
     [assetsLib assetForURL:_assets[index] resultBlock:^(ALAsset *asset) {
-        handlerBlock([UIImage imageWithCGImage:[asset thumbnail]], index);
+        switch (photoType) {
+            case Thumbnail:
+                handlerBlock([UIImage imageWithCGImage:[asset thumbnail]], index);
+                break;
+            case AspectRatioThumbnail:
+                handlerBlock([UIImage imageWithCGImage:[asset aspectRatioThumbnail]], index);
+                break;
+            default:
+                break;
+        }
     } failureBlock:^(NSError *error) {
         [self logWarningText:@"通过url访问图片失败。"];
         if (failureBlock != nil) {

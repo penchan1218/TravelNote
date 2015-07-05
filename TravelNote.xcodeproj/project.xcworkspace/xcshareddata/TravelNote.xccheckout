@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2BA774D8C8DB70627CFE450ABB8E9596C803E6E9</key>
-		<string>git.coding.net:huster/TravelNote.git</string>
+		<string>https://git.coding.net/huster/TravelNote.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TravelNote.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>git.coding.net:huster/TravelNote.git</string>
+	<string>https://git.coding.net/huster/TravelNote.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

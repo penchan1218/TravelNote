@@ -13,29 +13,29 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1000" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NZx-rd-bxi">
-                        <rect key="frame" x="8" y="5" width="508" height="172"/>
+                        <rect key="frame" x="12" y="5" width="500" height="172"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MX4-gR-8Cj">
-                        <rect key="frame" x="28" y="15" width="28" height="17"/>
+                        <rect key="frame" x="32" y="15" width="28" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地点" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZC-GG-XKK">
-                        <rect key="frame" x="28" y="40" width="24" height="15"/>
+                        <rect key="frame" x="32" y="40" width="24" height="15"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KLW-iK-soY">
-                        <rect key="frame" x="28" y="125" width="40" height="40"/>
+                        <rect key="frame" x="32" y="125" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="MGS-m3-x30"/>
                             <constraint firstAttribute="width" constant="40" id="WRQ-Ig-OiX"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" tag="1001" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_normal" translatesAutoresizingMaskIntoConstraints="NO" id="sJc-G8-lf2">
-                        <rect key="frame" x="461" y="15" width="40" height="40"/>
+                        <rect key="frame" x="457" y="15" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="UHh-3k-mvZ"/>
                             <constraint firstAttribute="width" constant="40" id="lJR-VZ-n7V"/>
@@ -53,8 +53,8 @@
                     <constraint firstItem="NZx-rd-bxi" firstAttribute="bottom" secondItem="KLW-iK-soY" secondAttribute="bottom" constant="12" id="dBb-yD-dVA"/>
                     <constraint firstItem="KLW-iK-soY" firstAttribute="leading" secondItem="NZx-rd-bxi" secondAttribute="leading" constant="20" id="fMd-aX-kV3"/>
                     <constraint firstItem="sZC-GG-XKK" firstAttribute="top" secondItem="MX4-gR-8Cj" secondAttribute="bottom" constant="8" id="h2g-zI-pXA"/>
-                    <constraint firstItem="NZx-rd-bxi" firstAttribute="leading" secondItem="jeo-Pf-iXL" secondAttribute="leading" constant="8" id="qEe-Qn-10m"/>
-                    <constraint firstAttribute="trailing" secondItem="NZx-rd-bxi" secondAttribute="trailing" constant="8" id="xir-rc-hqm"/>
+                    <constraint firstItem="NZx-rd-bxi" firstAttribute="leading" secondItem="jeo-Pf-iXL" secondAttribute="leading" constant="12" id="qEe-Qn-10m"/>
+                    <constraint firstAttribute="trailing" secondItem="NZx-rd-bxi" secondAttribute="trailing" constant="12" id="xir-rc-hqm"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="280" y="155.5"/>

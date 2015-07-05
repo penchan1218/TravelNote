@@ -8,10 +8,6 @@
 
 #import "PXCustomTabbar.h"
 #import "UIView+BGTouchView.h"
-#define HexColor(rgbValue) [UIColor \
-colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation PXCustomTabbar{
     NSArray *_images;
@@ -34,7 +30,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             imageView.frame = CGRectMake(i * width, 0, width, self.frame.size.height);
             imageView.contentMode = UIViewContentModeCenter;
             imageView.tag = i==0?1:0;
-            imageView.backgroundColor =  imageView.tag == 0?HexColor(0x37393e):HexColor(0x1b1d1f);
+            imageView.backgroundColor =  imageView.tag == 0?HexColor(0x37393e, 1.0):HexColor(0x1b1d1f, 1.0);
             [imageView touchEndedBlock:^(UIView *selfView) {
                 if (i != 2) {
                     for (UIImageView *imageView in imageViews) {
@@ -42,7 +38,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
                         if (imageView == (UIImageView *)selfView) {
                             imageView.tag = 1;
                         }
-                        imageView.backgroundColor =  imageView.tag == 0?HexColor(0x37393e):HexColor(0x1b1d1f);
+                        imageView.backgroundColor =  imageView.tag == 0?HexColor(0x37393e, 1.0):HexColor(0x1b1d1f, 1.0);
                     }
                 }
                 tapAction(i);

@@ -18,8 +18,23 @@
 		818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87A61B27387B0058FF50 /* PXCustomTabbar.m */; };
 		818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */; };
 		818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */; };
+		BB02DE561B47B72000C578C5 /* PCDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB02DE551B47B72000C578C5 /* PCDiscoveryCell.m */; };
+		BB02DE581B47B73100C578C5 /* PCDiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB02DE571B47B73100C578C5 /* PCDiscoveryCell.xib */; };
+		BB02DE5C1B490F8200C578C5 /* PCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB02DE5B1B490F8200C578C5 /* PCMeViewController.m */; };
+		BB02DE5F1B49290500C578C5 /* PCMyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB02DE5E1B49290500C578C5 /* PCMyInfoView.m */; };
 		BB09CAB91B380D2E00C154CF /* modelTest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BB09CAB81B380D2E00C154CF /* modelTest.bundle */; };
+		BB1A52C91B3A3B3D00FB7817 /* PCChoosePhotosController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52C81B3A3B3D00FB7817 /* PCChoosePhotosController.m */; };
+		BB1A52CD1B3B231D00FB7817 /* PCChoosePhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52CB1B3B231D00FB7817 /* PCChoosePhotosCell.m */; };
+		BB1A52CE1B3B231D00FB7817 /* PCChoosePhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB1A52CC1B3B231D00FB7817 /* PCChoosePhotosCell.xib */; };
+		BB1A52D11B3C6EEA00FB7817 /* PCAddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52D01B3C6EEA00FB7817 /* PCAddNoteViewController.m */; };
+		BB1A52D51B3C84EC00FB7817 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52D41B3C84EC00FB7817 /* UIView+LayoutHelper.m */; };
+		BB1A52D91B3D35C500FB7817 /* UIImage+ImagesAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52D81B3D35C500FB7817 /* UIImage+ImagesAbout.m */; };
+		BB1A52DC1B3E50F000FB7817 /* PCAddTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52DB1B3E50F000FB7817 /* PCAddTitleViewController.m */; };
+		BB1A52E21B444E2B00FB7817 /* PCPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52E11B444E2B00FB7817 /* PCPlaceHolderTextView.m */; };
+		BB1A52E51B44651A00FB7817 /* PCPlaceHolderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1A52E41B44651A00FB7817 /* PCPlaceHolderTextField.m */; };
 		BB5DBE481B2DA8AF007BDCE0 /* PCBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5DBE471B2DA8AF007BDCE0 /* PCBaseWebViewController.m */; };
+		BB69AFE61B45A2170094F5F4 /* PCDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB69AFE51B45A2170094F5F4 /* PCDiscoveryViewController.m */; };
+		BB69AFE91B45A7330094F5F4 /* PCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB69AFE81B45A7330094F5F4 /* PCSearchBar.m */; };
 		BB9E6BC71B395003002907D6 /* PCPhotosManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9E6BC61B395003002907D6 /* PCPhotosManager.m */; };
 		BB9E6BCD1B3958CC002907D6 /* NSObject+PCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9E6BCC1B3958CC002907D6 /* NSObject+PCLog.m */; };
 		BB9EEA771B27DFDF00CF7BAE /* PCCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9EEA741B27DFDF00CF7BAE /* PCCustomSegmentView.m */; };
@@ -58,11 +73,39 @@
 		818B87A61B27387B0058FF50 /* PXCustomTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXCustomTabbar.m; path = Tab/PXCustomTabbar.m; sourceTree = "<group>"; };
 		818B87AB1B273A390058FF50 /* UIView+BGTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BGTouchView.h"; path = "Tab/UIView+BGTouchView.h"; sourceTree = "<group>"; };
 		818B87AC1B273A390058FF50 /* UIView+BGTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BGTouchView.m"; path = "Tab/UIView+BGTouchView.m"; sourceTree = "<group>"; };
-		818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXChooseTemplateViewController.h; path = Edit/PXChooseTemplateViewController.h; sourceTree = "<group>"; };
-		818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXChooseTemplateViewController.m; path = Edit/PXChooseTemplateViewController.m; sourceTree = "<group>"; };
+		818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXChooseTemplateViewController.h; sourceTree = "<group>"; };
+		818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXChooseTemplateViewController.m; sourceTree = "<group>"; };
+		BB02DE541B47B72000C578C5 /* PCDiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDiscoveryCell.h; sourceTree = "<group>"; };
+		BB02DE551B47B72000C578C5 /* PCDiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDiscoveryCell.m; sourceTree = "<group>"; };
+		BB02DE571B47B73100C578C5 /* PCDiscoveryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCDiscoveryCell.xib; sourceTree = "<group>"; };
+		BB02DE5A1B490F8200C578C5 /* PCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMeViewController.h; sourceTree = "<group>"; };
+		BB02DE5B1B490F8200C578C5 /* PCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMeViewController.m; sourceTree = "<group>"; };
+		BB02DE5D1B49290500C578C5 /* PCMyInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMyInfoView.h; sourceTree = "<group>"; };
+		BB02DE5E1B49290500C578C5 /* PCMyInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMyInfoView.m; sourceTree = "<group>"; };
 		BB09CAB81B380D2E00C154CF /* modelTest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = modelTest.bundle; sourceTree = "<group>"; };
+		BB1A52C71B3A3B3D00FB7817 /* PCChoosePhotosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCChoosePhotosController.h; sourceTree = "<group>"; };
+		BB1A52C81B3A3B3D00FB7817 /* PCChoosePhotosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCChoosePhotosController.m; sourceTree = "<group>"; };
+		BB1A52CA1B3B231D00FB7817 /* PCChoosePhotosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCChoosePhotosCell.h; sourceTree = "<group>"; };
+		BB1A52CB1B3B231D00FB7817 /* PCChoosePhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCChoosePhotosCell.m; sourceTree = "<group>"; };
+		BB1A52CC1B3B231D00FB7817 /* PCChoosePhotosCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCChoosePhotosCell.xib; sourceTree = "<group>"; };
+		BB1A52CF1B3C6EEA00FB7817 /* PCAddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAddNoteViewController.h; sourceTree = "<group>"; };
+		BB1A52D01B3C6EEA00FB7817 /* PCAddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAddNoteViewController.m; sourceTree = "<group>"; };
+		BB1A52D31B3C84EC00FB7817 /* UIView+LayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutHelper.h"; sourceTree = "<group>"; };
+		BB1A52D41B3C84EC00FB7817 /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
+		BB1A52D71B3D35C500FB7817 /* UIImage+ImagesAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImagesAbout.h"; sourceTree = "<group>"; };
+		BB1A52D81B3D35C500FB7817 /* UIImage+ImagesAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImagesAbout.m"; sourceTree = "<group>"; };
+		BB1A52DA1B3E50F000FB7817 /* PCAddTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAddTitleViewController.h; sourceTree = "<group>"; };
+		BB1A52DB1B3E50F000FB7817 /* PCAddTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAddTitleViewController.m; sourceTree = "<group>"; };
+		BB1A52E01B444E2B00FB7817 /* PCPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCPlaceHolderTextView.h; sourceTree = "<group>"; };
+		BB1A52E11B444E2B00FB7817 /* PCPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCPlaceHolderTextView.m; sourceTree = "<group>"; };
+		BB1A52E31B44651A00FB7817 /* PCPlaceHolderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCPlaceHolderTextField.h; sourceTree = "<group>"; };
+		BB1A52E41B44651A00FB7817 /* PCPlaceHolderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCPlaceHolderTextField.m; sourceTree = "<group>"; };
 		BB5DBE461B2DA8AF007BDCE0 /* PCBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBaseWebViewController.h; sourceTree = "<group>"; };
 		BB5DBE471B2DA8AF007BDCE0 /* PCBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBaseWebViewController.m; sourceTree = "<group>"; };
+		BB69AFE41B45A2170094F5F4 /* PCDiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDiscoveryViewController.h; sourceTree = "<group>"; };
+		BB69AFE51B45A2170094F5F4 /* PCDiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDiscoveryViewController.m; sourceTree = "<group>"; };
+		BB69AFE71B45A7330094F5F4 /* PCSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSearchBar.h; sourceTree = "<group>"; };
+		BB69AFE81B45A7330094F5F4 /* PCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSearchBar.m; sourceTree = "<group>"; };
 		BB9E6BC51B395002002907D6 /* PCPhotosManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCPhotosManager.h; sourceTree = "<group>"; };
 		BB9E6BC61B395003002907D6 /* PCPhotosManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCPhotosManager.m; sourceTree = "<group>"; };
 		BB9E6BCB1B3958CC002907D6 /* NSObject+PCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PCLog.h"; sourceTree = "<group>"; };
@@ -182,8 +225,25 @@
 			children = (
 				818B87AF1B273FE10058FF50 /* PXChooseTemplateViewController.h */,
 				818B87B01B273FE10058FF50 /* PXChooseTemplateViewController.m */,
+				BB1A52C71B3A3B3D00FB7817 /* PCChoosePhotosController.h */,
+				BB1A52C81B3A3B3D00FB7817 /* PCChoosePhotosController.m */,
+				BB1A52CF1B3C6EEA00FB7817 /* PCAddNoteViewController.h */,
+				BB1A52D01B3C6EEA00FB7817 /* PCAddNoteViewController.m */,
+				BB1A52DA1B3E50F000FB7817 /* PCAddTitleViewController.h */,
+				BB1A52DB1B3E50F000FB7817 /* PCAddTitleViewController.m */,
 			);
-			name = Edit;
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		BB02DE591B490F3F00C578C5 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				BB02DE5A1B490F8200C578C5 /* PCMeViewController.h */,
+				BB02DE5B1B490F8200C578C5 /* PCMeViewController.m */,
+				BB02DE5D1B49290500C578C5 /* PCMyInfoView.h */,
+				BB02DE5E1B49290500C578C5 /* PCMyInfoView.m */,
+			);
+			path = Me;
 			sourceTree = "<group>";
 		};
 		BB09CA781B38092B00C154CF /* TNResources */ = {
@@ -194,6 +254,24 @@
 			path = TNResources;
 			sourceTree = "<group>";
 		};
+		BB1A52D21B3C849600FB7817 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BB1A52D31B3C84EC00FB7817 /* UIView+LayoutHelper.h */,
+				BB1A52D41B3C84EC00FB7817 /* UIView+LayoutHelper.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		BB1A52D61B3D359400FB7817 /* ImagesAbout */ = {
+			isa = PBXGroup;
+			children = (
+				BB1A52D71B3D35C500FB7817 /* UIImage+ImagesAbout.h */,
+				BB1A52D81B3D35C500FB7817 /* UIImage+ImagesAbout.m */,
+			);
+			path = ImagesAbout;
+			sourceTree = "<group>";
+		};
 		BB5DBE451B2DA847007BDCE0 /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +279,15 @@
 				BB5DBE471B2DA8AF007BDCE0 /* PCBaseWebViewController.m */,
 			);
 			path = Web;
+			sourceTree = "<group>";
+		};
+		BB69AFE31B45A1CB0094F5F4 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				BB69AFE41B45A2170094F5F4 /* PCDiscoveryViewController.h */,
+				BB69AFE51B45A2170094F5F4 /* PCDiscoveryViewController.m */,
+			);
+			path = Discovery;
 			sourceTree = "<group>";
 		};
 		BB9E6BC41B394F90002907D6 /* Models */ = {
@@ -215,6 +302,8 @@
 		BB9E6BC91B395863002907D6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				BB1A52D61B3D359400FB7817 /* ImagesAbout */,
+				BB1A52D21B3C849600FB7817 /* Layout */,
 				BB9E6BCA1B39588D002907D6 /* Log */,
 			);
 			path = Categories;
@@ -242,6 +331,8 @@
 			children = (
 				BB5DBE451B2DA847007BDCE0 /* Web */,
 				BB9EEA6C1B27609600CF7BAE /* Home */,
+				BB69AFE31B45A1CB0094F5F4 /* Discovery */,
+				BB02DE591B490F3F00C578C5 /* Me */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +354,18 @@
 				BB9EEA7A1B2815D300CF7BAE /* PCDisplayTableViewCell.h */,
 				BB9EEA7B1B2815D300CF7BAE /* PCDisplayTableViewCell.m */,
 				BB9EEA7D1B2815FB00CF7BAE /* PCDisplayTableViewCell.xib */,
+				BB1A52CA1B3B231D00FB7817 /* PCChoosePhotosCell.h */,
+				BB1A52CB1B3B231D00FB7817 /* PCChoosePhotosCell.m */,
+				BB1A52CC1B3B231D00FB7817 /* PCChoosePhotosCell.xib */,
+				BB1A52E01B444E2B00FB7817 /* PCPlaceHolderTextView.h */,
+				BB1A52E11B444E2B00FB7817 /* PCPlaceHolderTextView.m */,
+				BB1A52E31B44651A00FB7817 /* PCPlaceHolderTextField.h */,
+				BB1A52E41B44651A00FB7817 /* PCPlaceHolderTextField.m */,
+				BB69AFE71B45A7330094F5F4 /* PCSearchBar.h */,
+				BB69AFE81B45A7330094F5F4 /* PCSearchBar.m */,
+				BB02DE541B47B72000C578C5 /* PCDiscoveryCell.h */,
+				BB02DE551B47B72000C578C5 /* PCDiscoveryCell.m */,
+				BB02DE571B47B73100C578C5 /* PCDiscoveryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +450,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1A52CE1B3B231D00FB7817 /* PCChoosePhotosCell.xib in Resources */,
+				BB02DE581B47B73100C578C5 /* PCDiscoveryCell.xib in Resources */,
 				815B375F1B1CA9A2002E262F /* Main.storyboard in Resources */,
 				815B37641B1CA9A2002E262F /* LaunchScreen.xib in Resources */,
 				815B37611B1CA9A2002E262F /* Images.xcassets in Resources */,
@@ -369,19 +474,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1A52E21B444E2B00FB7817 /* PCPlaceHolderTextView.m in Sources */,
 				818B87A71B27387B0058FF50 /* PXCustomTabbar.m in Sources */,
 				BB5DBE481B2DA8AF007BDCE0 /* PCBaseWebViewController.m in Sources */,
 				815B375C1B1CA9A2002E262F /* ViewController.m in Sources */,
+				BB1A52DC1B3E50F000FB7817 /* PCAddTitleViewController.m in Sources */,
 				818B87AD1B273A390058FF50 /* UIView+BGTouchView.m in Sources */,
+				BB1A52C91B3A3B3D00FB7817 /* PCChoosePhotosController.m in Sources */,
+				BB02DE561B47B72000C578C5 /* PCDiscoveryCell.m in Sources */,
+				BB02DE5C1B490F8200C578C5 /* PCMeViewController.m in Sources */,
+				BB02DE5F1B49290500C578C5 /* PCMyInfoView.m in Sources */,
+				BB1A52D11B3C6EEA00FB7817 /* PCAddNoteViewController.m in Sources */,
+				BB1A52CD1B3B231D00FB7817 /* PCChoosePhotosCell.m in Sources */,
 				815B37591B1CA9A2002E262F /* AppDelegate.m in Sources */,
 				BB9EEA771B27DFDF00CF7BAE /* PCCustomSegmentView.m in Sources */,
 				BB9EEA7C1B2815D300CF7BAE /* PCDisplayTableViewCell.m in Sources */,
 				BB9E6BCD1B3958CC002907D6 /* NSObject+PCLog.m in Sources */,
 				BB9E6BC71B395003002907D6 /* PCPhotosManager.m in Sources */,
+				BB69AFE91B45A7330094F5F4 /* PCSearchBar.m in Sources */,
+				BB1A52E51B44651A00FB7817 /* PCPlaceHolderTextField.m in Sources */,
+				BB1A52D51B3C84EC00FB7817 /* UIView+LayoutHelper.m in Sources */,
+				BB69AFE61B45A2170094F5F4 /* PCDiscoveryViewController.m in Sources */,
 				815B37561B1CA9A2002E262F /* main.m in Sources */,
 				818B87A41B2737300058FF50 /* PXCustomTabbarViewController.m in Sources */,
 				BB9EEA781B27DFDF00CF7BAE /* PCHomeViewController.m in Sources */,
 				818B87B11B273FE10058FF50 /* PXChooseTemplateViewController.m in Sources */,
+				BB1A52D91B3D35C500FB7817 /* UIImage+ImagesAbout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

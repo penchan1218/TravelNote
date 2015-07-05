@@ -22,7 +22,7 @@
     cell.lbl_place = (UILabel *)[cell viewWithTag:1004];
     
     cell.imgView_bg.layer.cornerRadius = 5.0f;
-    cell.imgView_avatar.layer.cornerRadius = 20.0f;
+    cell.imgView_avatar.layer.cornerRadius = 25.0f;
     
     cell.likeBlock = block;
     [cell addLikeOrUnlikeAction];

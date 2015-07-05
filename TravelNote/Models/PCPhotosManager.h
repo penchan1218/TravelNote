@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface PCPhotosManager : NSObject
 
@@ -14,6 +15,8 @@
 
 + (PCPhotosManager *)shared;
 
-- (void)takeOutPhotoAtIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock;
+- (void)takeOutThumbnailPhotoAtIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock;
+
+- (void)takeOutAspectRatioThumbnailPhotoAtIndex:(NSInteger)index usingBlock:(void (^)(UIImage *image, NSInteger index))handlerBlock failureBlock:(void (^)(NSError *error))failureBlock;
 
 @end

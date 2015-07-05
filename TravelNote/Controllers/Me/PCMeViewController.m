@@ -1,45 +1,48 @@
 //
-//  PCHomeViewController.m
+//  PCMeViewController.m
 //  TravelNote
 //
-//  Created by 陈颖鹏 on 15/6/10.
+//  Created by 陈颖鹏 on 15/7/5.
 //  Copyright (c) 2015年 朱泌丞. All rights reserved.
 //
 
-#import "PCHomeViewController.h"
-#import "PCCustomSegmentView.h"
+#import "PCMeViewController.h"
 #import "PCDisplayTableViewCell.h"
-#import "PCBaseWebViewController.h"
 
-@interface PCHomeViewController () <UITableViewDelegate, UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface PCMeViewController ()
 
 @end
 
-@implementation PCHomeViewController
+@implementation PCMeViewController
 
 - (void)viewDidLoad {
-    PCCustomSegmentView *segmentView = [[PCCustomSegmentView alloc] initWithTitles:@[@"广场", @"关注"]
-                                                                    filledInBounds:CGSizeMake(200, 44)];
-    [segmentView addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
-    self.navigationItem.titleView = segmentView;
-    
-    
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
-- (void)segmentChanged:(PCCustomSegmentView *)segmentView {
-    NSLog(@"%ld", (unsigned long)segmentView.index);
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 #pragma mark - Protocol - table view
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.0f;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,7 +63,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(PCDisplayTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSArray *titleTexts = @[@"我站在祖国的最东端-黑瞎子岛",
                             @"我的江城舌尖之旅",
                             @"漫步武汉"];
@@ -74,12 +76,6 @@
     
     cell.imgView_bg.image = [UIImage imageNamed:[NSString stringWithFormat:@"example_bg_%d", (int)indexPath.row%3]];
     cell.imgView_avatar.image = [UIImage imageNamed:[NSString stringWithFormat:@"example_avatar_%d", (int)indexPath.row%3]];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击，进入相关页面。");
-    PCBaseWebViewController *baseWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"TNBaseWebViewController"];
-    [self.navigationController pushViewController:baseWebView animated:YES];
 }
 
 @end

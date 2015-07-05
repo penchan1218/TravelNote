@@ -17,9 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBar.hidden = YES;
-    NSLog(@"%@",self.childViewControllers);
+    self.tabBar.translucent = NO;
     self.selectedIndex = 0;
     float height = self.view.frame.size.width * 50.0f / 375.0f;
+//    float height = 50.0f;
     PXCustomTabbar *customBar = [[PXCustomTabbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - height, self.view.frame.size.width, height) TapAction:^(NSInteger index) {
         if (index < 2) {
             self.selectedIndex = index;

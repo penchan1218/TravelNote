@@ -14,4 +14,9 @@
 
 #define     UIColorFromRGBA(r, g, b, a)     [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1.0f]
 
+#define HexColor(rgbValue, al) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:al > 1? 1.0: al]
+
 #endif
