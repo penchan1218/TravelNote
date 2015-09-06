@@ -11,6 +11,7 @@
 #import "UIView+LayoutHelper.h"
 #import "UIView+BGTouchView.h"
 #import "UIImage+ImagesAbout.h"
+#import "PCGuidanceElement.h"
 
 @interface PCAddNoteViewController () {
     UIImage *roundedImage;
@@ -28,8 +29,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     // text view 边框
-    _textView.layer.cornerRadius= 4.0f;
-    _textView.layer.borderWidth = 1.0f;
     _textView.layer.borderColor = [UIColor whiteColor].CGColor;
     
     if (_lastUpdatedText != nil) {
@@ -45,7 +44,9 @@
         [weakSelf exit];
     }];
     
-    [_textView becomeFirstResponder];
+//    [_textView becomeFirstResponder];
+    [self.view layoutIfNeeded];
+    [self showGuidingView];
 }
 
 - (void)keyboardWillChange:(NSNotification *)notif {
@@ -54,6 +55,39 @@
     float keyboard_endY = [userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue].origin.y;
     float dist = SCREEN_HEIGHT-keyboard_endY;
     _containView.fixedBottom.constant = dist;
+}
+
+- (void)showGuidingView {
+    UIView *guidingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    guidingView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.9];
+    [self.view addSubview:guidingView];
+    
+    PCGuidanceElement *element_right = [[PCGuidanceElement alloc] initWithGuidingTowards:TNGuidanceSideRight
+                                                                                    text:@"编辑按此处"];
+    CGSize size_right_lbl = [element_right.lbl_guide sizeThatFits:CGSizeMake(CGFLOAT_MAX, 40)];
+    CGSize size_element_right = CGSizeMake(size_right_lbl.width+30+10, 40);
+    [element_right setFrame:CGRectMake(0, 0, size_element_right.width, size_element_right.height)];
+//    [element_right setCenter:self.view.center];
+    [element_right setCenter:CGPointMake(SCREEN_WIDTH/4*3, SCREEN_HEIGHT/2)];
+    [guidingView addSubview:element_right];
+    
+    PCGuidanceElement *element_top = [[PCGuidanceElement alloc] initWithGuidingTowards:TNGuidanceSideTop
+                                                                                  text:@"编辑完成按此处"];
+    CGSize size_top_lbl = [element_top.lbl_guide sizeThatFits:CGSizeMake(CGFLOAT_MAX, 40)];
+    CGSize size_element_top = CGSizeMake(MAX(size_top_lbl.width, 30), size_top_lbl.height+30+10);
+    [element_top setFrame:CGRectMake(0, 0, size_element_top.width, size_element_top.height)];
+//    [element_top setCenter:self.imageView.center];
+    [element_top setCenter:CGPointMake(SCREEN_WIDTH/4, SCREEN_HEIGHT/2)];
+    [guidingView addSubview:element_top];
+    
+//    element_top._top = self.imageView._bottom;
+//    element_right._right = self.textView._left;
+    
+    __weak typeof(self) weakSelf = self;
+    [guidingView touchEndedBlock:^(UIView *selfView) {
+        [selfView removeFromSuperview];
+        [weakSelf.textView becomeFirstResponder];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

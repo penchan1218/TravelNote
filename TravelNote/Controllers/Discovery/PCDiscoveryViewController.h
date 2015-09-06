@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCSearchBar.h"
 
 @interface PCDiscoveryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) PCSearchBar *searchBar;
 
 @end

@@ -10,8 +10,9 @@
 
 @interface UIView (LayoutHelper)
 
+- (NSLayoutConstraint *)fixedTop;
 - (NSLayoutConstraint *)fixedBottom;
 
-//- (NSLayoutConstraint *)fixedHeigt;
+- (NSLayoutConstraint *)fixedHeigt;
 
 @end

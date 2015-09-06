@@ -7,8 +7,17 @@
 //
 
 #import "PCBaseWebViewController.h"
+#import "PCTravelNoteCreator.h"
+#import "UIImage+ImagesAbout.h"
+#import "WXApi.h"
 
-@interface PCBaseWebViewController ()
+#import "PCShareViewController.h"
+
+@interface PCBaseWebViewController () <TNShareToProtocol>
+
+@property (nonatomic, assign) BOOL isSharing;
+
+@property (weak, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -18,9 +27,16 @@
     [super viewDidLoad];
     
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"返回"
-                                                                   style:UIBarButtonItemStylePlain
+                                                                   style:UIBarButtonItemStyleBordered
                                                                   target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem = backBarBtn;
+    
+    if (self.webViewType != TNWebViewTypeAdjustAfterFinished) {
+        UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc] initWithTitle:@"分享"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self action:@selector(shouldShareTo:)];
+        self.navigationItem.rightBarButtonItem = shareBtn;
+    }
     
 //    NSString *modelTestBundlePath = [[NSBundle mainBundle] pathForResource:@"modelTest" ofType:@"bundle"];
 //    NSBundle *modelTestBundle = [NSBundle bundleWithPath:modelTestBundlePath];
@@ -66,10 +82,124 @@
 //        NSString *formatString = [NSString stringWithFormat:@"testInit('%@');", jsonString];
 //        [_webView stringByEvaluatingJavaScriptFromString:formatString];
 //    });
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_URLString]];
+    [self.webView loadRequest:request];
+    
+    __weak typeof(self) weakSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:TNHasSharedToWechatNotification object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      if (!weakSelf.hud) {
+                                                          weakSelf.hud = [weakSelf.view HUDForLoadingText:nil];
+                                                      }
+                                                      weakSelf.hud.mode = MBProgressHUDModeText;
+                                                      weakSelf.hud.labelText = @"分享成功";
+                                                      [weakSelf.hud hide:YES afterDelay:2];
+                                                  }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:TNHasCancelledSharingToWechatNotification object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+                                                  }];
+}
+
+- (void)shouldShareTo:(id)sender {
+    if (!self.isSharing) {
+        PCShareViewController *shareVC = [[PCShareViewController alloc] init];
+        shareVC.delegate = self;
+        [self addChildViewController:shareVC];
+        [self.view addSubview:shareVC.view];
+        [shareVC didMoveToParentViewController:self];
+        [shareVC showChoices];
+        
+        __weak typeof(self) weakSelf = self;
+        shareVC.cancelBlock = ^{
+            weakSelf.isSharing = NO;
+        };
+        
+        self.isSharing = YES;
+    }
+}
+
+- (void)shareToWechat:(int)scene {
+    self.isSharing = YES;
+
+    WXMediaMessage *message = [[WXMediaMessage alloc] init];
+    if (self.webViewType == TNWebViewTypeAdjustWhenFinished) {
+        UIImage *cover = [UIImage imageWithImage:[PCTravelNoteCreator shared].cover scaledToSize:CGSizeMake(40, 40)];
+        [message setTitle:[PCTravelNoteCreator shared].title];
+        [message setThumbImage:cover];
+    } else if (self.webViewType == TNWebViewTypePreviewWorks ||
+               self.webViewType == TNWebViewTypePreviewTemplates) {
+        if (self.coverImg) {
+            UIImage *cover = [UIImage imageWithImage:self.coverImg scaledToSize:CGSizeMake(40, 40)];
+            [message setThumbImage:cover];
+        }
+        [message setTitle:self.title];
+    }
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    if (self.webViewType != TNWebViewTypePreviewTemplates) {
+        ext.webpageUrl = [NSString stringWithFormat:@"http://travel.changjiangcp.com/view/%@/%@", self.articleId, self.temp];
+    } else {
+        ext.webpageUrl = self.URLString;
+    }
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.message = message;
+    req.bText = NO;
+    req.scene = scene;
+    [WXApi sendReq:req];
+    
+    self.isSharing = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [PCPostNotificationCenter postNotification_hideTabbar_withObj:nil];
 }
 
 - (void)backAction {
-    [self.navigationController popViewControllerAnimated:YES];
+    switch (self.webViewType) {
+        case TNWebViewTypeAdjustWhenFinished:
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case TNWebViewTypeAdjustAfterFinished:
+        case TNWebViewTypePreviewWorks:
+        case TNWebViewTypePreviewTemplates:
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)dealloc {
+    [self.webView stopLoading];
+    [self.webView removeFromSuperview];
+    self.webView = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Protocol - TNShareToProtocol
+
+- (void)willShareToWechatScene:(NSInteger)scene {
+    switch (scene) {
+        case 0:
+            [self shareToWechat:WXSceneSession];
+            break;
+        case 1:
+            [self shareToWechat:WXSceneTimeline];
+            break;
+        case 2:
+            [self shareToWechat:WXSceneFavorite];
+        default:
+            break;
+    }
 }
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCChooseTemplatesScrollView.h"
 
-@interface PXChooseTemplateViewController : UIViewController
+@interface PXChooseTemplateViewController : UIViewController <PCChooseTemplatesScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet PCChooseTemplatesScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIButton *btn_title;
 
 @end

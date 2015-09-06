@@ -11,10 +11,8 @@
 @interface PCChoosePhotosController : UIViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextBtn;
 
-@property (nonatomic, assign, readonly) NSInteger partsCount;
-@property (nonatomic, assign) NSInteger totalParts;
+@property (nonatomic, assign) NSInteger partsCount;
 
 @end

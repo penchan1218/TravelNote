@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView_status;
 
-
+@property (nonatomic, copy) NSIndexPath *indexpath;
 @property (nonatomic, assign) BOOL status;
 
 @end

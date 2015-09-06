@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^SearchBlock)(NSString *searchTxt);
+
 @interface PCSearchBar : UIView <UITextFieldDelegate>
 
 @property (nonatomic, copy) NSString *placeHolder;
 
-+ (PCSearchBar *)searchBarInstance;
+@property (nonatomic, copy, readonly) NSString *text;
+
++ (PCSearchBar *)searchBarInstanceWithSearchBlock:(SearchBlock)block;
 
 @end

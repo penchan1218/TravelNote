@@ -7,29 +7,117 @@
 //
 
 #import "PCDiscoveryViewController.h"
-#import "PCSearchBar.h"
-#import "PCDiscoveryCell.h"
+#import "PCNetworkManager.h"
+#import "PCOthersInfoViewController.h"
+#import "PCTravelNoteViewController.h"
+
+#import "PCRecommendModel+Helper.h"
+
+@interface PCDiscoveryViewController ()
+
+@property (strong, nonatomic) NSMutableArray *models;
+
+@end
 
 @implementation PCDiscoveryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PCSearchBar *searchBar = [PCSearchBar searchBarInstance];
+    __weak typeof(self) weakSelf = self;
+    PCSearchBar *searchBar = [PCSearchBar searchBarInstanceWithSearchBlock:^(NSString *searchTxt) {
+        [weakSelf searchRequest:searchTxt];
+    }];
     searchBar.placeHolder = @"搜索游记、用户";
     self.navigationItem.titleView = searchBar;
+    _searchBar = searchBar;
     
+//    _tableView.clipsToBounds = NO;
     [_tableView registerNib:[UINib nibWithNibName:@"PCDiscoveryCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TNDiscoveryCell"];
+    
+    _models = [NSMutableArray array];
+    
+    [self searchRequest:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:TNHasFollowedSomeoneNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSDictionary *userInfo = note.userInfo;
+        for (PCRecommendModel *model in weakSelf.models) {
+            if ([model.userId isEqual:userInfo[@"userId"]]) {
+                model.isFollowed = YES;
+                
+                NSIndexPath *indexpath = model.indexpath;
+                PCDiscoveryCell *cell = (PCDiscoveryCell *)[weakSelf.tableView cellForRowAtIndexPath:indexpath];
+                if (cell) {
+                    cell.follow = YES;
+                }
+            }
+        }
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:TNHasUnfollowedSomeoneNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSDictionary *userInfo = note.userInfo;
+        for (PCRecommendModel *model in weakSelf.models) {
+            if ([model.userId isEqual:userInfo[@"userId"]]) {
+                model.isFollowed = NO;
+                
+                NSIndexPath *indexpath = model.indexpath;
+                PCDiscoveryCell *cell = (PCDiscoveryCell *)[weakSelf.tableView cellForRowAtIndexPath:indexpath];
+                if (cell) {
+                    cell.follow = NO;
+                }
+            }
+        }
+    }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [PCPostNotificationCenter postNotification_showTabbar_withObj:self];
+}
+
+- (void)searchRequest:(NSString *)searchTxt {
+    __weak typeof(self) weakSelf = self;
+    if (searchTxt == nil || searchTxt.length == 0) {
+        [PCNetworkManager getRecommendArticlesWithOK:^(NSArray *JSON) {
+            [weakSelf.models removeAllObjects];
+            for (NSInteger i = 0; i < JSON.count; i++) {
+                PCRecommendModel *model = [[PCRecommendModel alloc] initWithInfo:JSON[i]];
+                [weakSelf.models addObject:model];
+                model.indexpath = [NSIndexPath indexPathForRow:0 inSection:weakSelf.models.count-1];
+            }
+            [weakSelf.tableView reloadData];
+        }];
+    } else {
+        [PCNetworkManager searchUserByNickname:searchTxt ok:^(NSArray *JSON) {
+            [weakSelf.models removeAllObjects];
+            for (NSInteger i = 0; i < JSON.count; i++) {
+                PCRecommendModel *model = [[PCRecommendModel alloc] initWithInfo:JSON[i]];
+                [weakSelf.models addObject:model];
+                model.indexpath = [NSIndexPath indexPathForRow:0 inSection:weakSelf.models.count-1];
+            }
+            [weakSelf.tableView reloadData];
+        }];
+    }
 }
 
 #pragma mark - Protocol - table view
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_searchBar.isFirstResponder) {
+        [_searchBar resignFirstResponder];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _models.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -37,7 +125,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 1.f;
+    return 1.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,26 +144,39 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PCDiscoveryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TNDiscoveryCell"];
-    [cell clearAllElements];
-    cell.idx = indexPath.section;
+    
+    PCRecommendModel *model = _models[indexPath.section];
+    [model reloadCell:cell];
+    
+    __weak typeof(self) weakSelf = self;
+    cell.showArticleBlock = ^(NSInteger index) {
+        if (index < model.articles.count) {
+            NSDictionary *article = [model.articles objectAtIndex:index];
+            NSString *articleid = article[@"_id"];
+            if (articleid != nil) {
+                PCTravelNoteViewController *travelNoteVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:@"TNTravelNoteViewController"];
+                [weakSelf.navigationController pushViewController:travelNoteVC animated:YES];
+                
+                __weak PCTravelNoteViewController *weakTravelNoteVC = travelNoteVC;
+                [PCNetworkManager getArticle:articleid ok:^(NSDictionary *JSON, NSString *_articleid) {
+                    PCTravelNoteModel *model_travelNote = [[PCTravelNoteModel alloc] initWithInfo:JSON];
+                    weakTravelNoteVC.model_tralvelNote = model_travelNote;
+                }];
+            }
+        }
+    };
+    
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(PCDiscoveryCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Example
-//    NSDictionary *dic = @{@"avatar": [UIImage imageNamed:@"avatar"],
-//                          @"nickname": @"nickname",
-//                          @"signature": @"signature",
-//                          @"follow": @(NO),
-//                          @"images": @[[UIImage imageNamed:@"img_1"],
-//                                       [UIImage imageNamed:@"img_2"],
-//                                       [UIImage imageNamed:@"img_3"]]};
-//    [cell setupAllElements:dic];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NSLog(@"index %d selected!", (int)indexPath.section);
+    
+    PCRecommendModel *model = _models[indexPath.section];
+//    PCBaseMyInfoViewController *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TNUserInfoViewController"];
+    PCOthersInfoViewController *userInfoVC = [[PCOthersInfoViewController alloc] init];
+    userInfoVC.userId = model.userId;
+    [self.navigationController pushViewController:userInfoVC animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

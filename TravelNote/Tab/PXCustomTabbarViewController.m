@@ -8,7 +8,10 @@
 
 #import "PXCustomTabbarViewController.h"
 #import "PXCustomTabbar.h"
+
 @interface PXCustomTabbarViewController ()
+
+@property (weak, nonatomic) PXCustomTabbar *customTabbar;
 
 @end
 
@@ -17,11 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBar.hidden = YES;
-    self.tabBar.translucent = NO;
+    self.tabBar.translucent = YES;
     self.selectedIndex = 0;
-    float height = self.view.frame.size.width * 50.0f / 375.0f;
-//    float height = 50.0f;
-    PXCustomTabbar *customBar = [[PXCustomTabbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - height, self.view.frame.size.width, height) TapAction:^(NSInteger index) {
+    
+    float height = 49.0f;
+    PXCustomTabbar *customBar = [[PXCustomTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-height, SCREEN_WIDTH, height) TapAction:^(NSInteger index) {
         if (index < 2) {
             self.selectedIndex = index;
         } else if (index > 2) {
@@ -33,13 +36,41 @@
             }];
         }
     }];
+    customBar.alpha = 0.0;
     [self.view addSubview:customBar];
-    // Do any additional setup after loading the view.
+    _customTabbar = customBar;
+
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.25 animations:^{
+            customBar.alpha = 1.0;
+        }];
+    });
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:TNCustomTabbarShouldHideNotification object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      [UIView animateWithDuration:0.1 animations:^{
+                                                          customBar.frame = CGRectMake(0, SCREEN_HEIGHT+20, SCREEN_WIDTH, height);
+                                                      }];
+                                                  }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:TNCustomTabbarShouldShowNotification object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      [UIView animateWithDuration:0.1 animations:^{
+                                                          customBar.frame = CGRectMake(0, SCREEN_HEIGHT-height, SCREEN_WIDTH, height);
+                                                      }];
+                                                  }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 

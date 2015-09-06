@@ -21,7 +21,6 @@
 - (void)awakeFromNib {
     // Initialization code
     _status = NO;
-    self.layer.cornerRadius = 4.0f;
     // 给select button设置为默认状态
     [self enableAddNoteAction];
 }

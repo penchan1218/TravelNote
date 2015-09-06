@@ -18,4 +18,11 @@
 // 关于UI的一些宏
 #import "UIConstants.h"
 
+#import "UIView+FrameAbout.h"
+
+// HUD
+#import "UIView+HUDHelper.h"
+
+#import "PCPostNotificationCenter.h"
+
 #endif

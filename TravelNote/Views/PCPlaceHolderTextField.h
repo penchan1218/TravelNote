@@ -10,4 +10,8 @@
 
 @interface PCPlaceHolderTextField : UITextField
 
+- (void)setPlaceholderColor:(UIColor *)color;
+
+- (void)setPlaceholderInset:(float)inset;
+
 @end

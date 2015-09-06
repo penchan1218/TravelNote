@@ -25,6 +25,7 @@
 - (id)initWithTitles:(NSArray *)titles filledInBounds:(CGSize)size {
     self = [super initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     if (self) {
+        self.clipsToBounds = YES;
         self.backgroundColor = [UIColor clearColor];
         self.userInteractionEnabled = YES;
         _titles = [titles copy];
@@ -109,9 +110,29 @@
     }
 }
 
+- (void)adjustPositionWithScale:(CGFloat)scale {
+    if (_btns.count == 0) {
+        return ;
+    }
+    
+    CGFloat dist = 0;
+    for (NSInteger i = _btns.count-2; i >= 0 && i < _btns.count; i++) {
+        UIButton *btn = _btns[i];
+        dist = btn.frame.origin.x-dist;
+    }
+    
+    UIButton *btn = _btns[0];
+    CGFloat originX = btn.frame.origin.x;
+    
+    CGRect endRect = __indicator.frame;
+    endRect.origin.x = originX+dist*scale;
+    __indicator.frame = endRect;
+}
+
 - (void)btnClicked:(UIButton *)btn {
     NSInteger index = btn.tag;
     self.index = index;
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setIndex:(NSInteger)index {
@@ -125,14 +146,11 @@
     [selectedBtn setTitleColor:[self selectedColor] forState:UIControlStateNormal];
     
     _index = index;
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
     
-    
-    [UIView animateWithDuration:0.25 animations:^{
-        __indicator.frame = CGRectMake(0, 0, [__lengths[index] floatValue], 2);
-        __indicator.center = CGPointMake(selectedBtn.center.x,
-                                         __containerView.frame.origin.y+__containerView.frame.size.height+1);
-    }];
+//    CGRect endRect = CGRectMake(selectedBtn.center.x-[__lengths[index] floatValue]/2, __containerView.frame.origin.y+__containerView.frame.size.height, [__lengths[index] floatValue], 2);
+//    [UIView animateWithDuration:0.25 animations:^{
+//        __indicator.frame = endRect;
+//    }];
 }
 
 - (UIFont *)btnFont {
@@ -144,7 +162,7 @@
 }
 
 - (UIColor *)unselectedColor {
-    return [UIColor whiteColor];
+    return UIColorFromRGBA(192, 225, 204, 1.0f);
 }
 
 @end

@@ -16,4 +16,6 @@
 
 - (id)initWithTitles:(NSArray *)titles filledInBounds:(CGSize)size;
 
+- (void)adjustPositionWithScale:(CGFloat)scale;
+
 @end

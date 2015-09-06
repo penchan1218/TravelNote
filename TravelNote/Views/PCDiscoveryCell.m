@@ -7,63 +7,71 @@
 //
 
 #import "PCDiscoveryCell.h"
+#import "PCNetworkManager.h"
+#import "UIView+BGTouchView.h"
 
 @implementation PCDiscoveryCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     self = [[NSBundle mainBundle] loadNibNamed:@"PCDiscoveryCell" owner:self options:nil][0];
-    [self baseSetup];
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    [self baseSetup];
-    return self;
-}
-
-- (void)baseSetup {
-    self.layer.borderWidth = 1.0f;
+- (void)awakeFromNib {
     self.layer.borderColor = HexColor(0xDBDADA, 1.0f).CGColor;
-    _img_avatar.layer.borderWidth = 25.0f;
-    _btn_follow.layer.cornerRadius = 4.0f;
-}
-
-- (void)setupAllElements:(NSDictionary *)dic {
-    // 结构:
-    // "avatar": <头像>,
-    // "nickname": <昵称>,
-    // "signature": <个性签名>,
-    // "follow": <BOOL型value, 更新状态>
-    // "images": <底部照片>
-    _img_avatar.image = dic[@"avatar"];
-    _lbl_name.text = dic[@"nickname"];
-    _lbl_signature.text = dic[@"signature"];
-    self.follow = [dic[@"follow"] boolValue];
-    [self setupImages:dic[@"images"]];
-}
-
-- (void)setupImages:(NSArray *)images {
-    if (images == nil ||
-        [images isKindOfClass:[NSArray class]] == NO) {
-        return ;
-    }
+    _lbl_name.adjustsFontSizeToFitWidth = YES;
+    _imgs = @[_img_1, _img_2, _img_3];
     
-    switch (images.count) {
-        case 3:
-            _img_3.image = images[2];
-        case 2:
-            _img_2.image = images[1];
-        case 1:
-            _img_1.image = images[0];
-            break;
-        default:
-            break;
+    __weak typeof(self) weakSelf = self;
+    [_img_1 touchEndedBlock:^(UIView *selfView) {
+        [weakSelf showArticleAtIndex:0];
+    }];
+    [_img_2 touchEndedBlock:^(UIView *selfView) {
+        [weakSelf showArticleAtIndex:1];
+    }];
+    [_img_3 touchEndedBlock:^(UIView *selfView) {
+        [weakSelf showArticleAtIndex:2];
+    }];
+}
+
+- (void)showArticleAtIndex:(NSInteger)index {
+    if (self.showArticleBlock) {
+        self.showArticleBlock(index);
+    } else {
+        NSLog(@"展示游记而缺少showArticleBlock!");
+    }
+}
+
+- (IBAction)shouldFollow:(id)sender {
+    if (self.userId != nil) {
+        _btn_follow.alpha = 0.0f;
+        [_indicator_follow startAnimating];
+        
+        __weak typeof(self) weakSelf = self;
+        if (self.follow == YES) {
+            [PCNetworkManager unfollowTheUser:self.userId ok:^(BOOL success) {
+                weakSelf.follow = !success;
+                if (success) {
+                    [PCPostNotificationCenter postNotification_unfollowSomeone_withObj:nil userId:weakSelf.userId];
+                }
+            }];
+        } else {
+            [PCNetworkManager followTheUser:self.userId ok:^(BOOL success) {
+                weakSelf.follow = success;
+                if (success) {
+                    [PCPostNotificationCenter postNotification_followSomeone_withObj:nil userId:weakSelf.userId];
+                }
+            }];
+        }
+    } else {
+        NSLog(@"关注操作信息不全 - 缺乏userId");
     }
 }
 
 - (void)clearAllElements {
+    _btn_follow.alpha = 0.0f;
+    [_indicator_follow startAnimating];
     [self clearImages];
     [self clearText];
 }
@@ -81,18 +89,14 @@
 }
 
 - (void)setFollow:(BOOL)follow {
-    if (_follow == follow) {
-        return ;
-    }
-    
+    _btn_follow.alpha = 1.0f;
+    [_indicator_follow stopAnimating];
     _follow = follow;
-    if (_follow == YES) {
-        [_btn_follow setTitle:@"已关注" forState:UIControlStateNormal];
-        _btn_follow.layer.borderColor = HexColor(0xD55353, 1.0f).CGColor;
-    } else {
-        [_btn_follow setTitle:@"关注" forState:UIControlStateNormal];
-        _btn_follow.layer.borderColor = HexColor(0x2DBD75, 1.0f).CGColor;
-    }
+    UIColor *color = _follow? HexColor(0xD55353, 1.0f): HexColor(0x2DBD75, 1.0f);
+    NSString *title = _follow? @"已关注": @"关注";
+    [_btn_follow setTitle:title forState:UIControlStateNormal];
+    [_btn_follow setTitleColor:color forState:UIControlStateNormal];
+    _btn_follow.layer.borderColor = color.CGColor;
 }
 
 @end

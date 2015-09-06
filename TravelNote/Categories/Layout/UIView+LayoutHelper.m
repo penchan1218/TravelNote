@@ -10,6 +10,23 @@
 
 @implementation UIView (LayoutHelper)
 
+- (NSLayoutConstraint *)fixedTop {
+    for (NSLayoutConstraint *constraint in self.superview.constraints) {
+        if (constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeTop &&
+            constraint.secondItem == self.superview && constraint.secondAttribute == NSLayoutAttributeTop) {
+            return constraint;
+        }
+        if (constraint.firstItem == self.superview && constraint.firstAttribute == NSLayoutAttributeTop &&
+            constraint.secondItem == self && constraint.secondAttribute == NSLayoutAttributeTop) {
+            [self logWarningText:@"fixed top或许是相反的。"];
+            return constraint;
+        }
+    }
+    
+    [self logWarningText:@"fixed top不存在。"];
+    return nil;
+}
+
 - (NSLayoutConstraint *)fixedBottom {
     for (NSLayoutConstraint *constraint in self.superview.constraints) {
         if (constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeBottom &&
@@ -27,13 +44,15 @@
     return nil;
 }
 
-//- (NSLayoutConstraint *)fixedHeigt {
-//    for (NSLayoutConstraint *constraint in self.constraints) {
-//        if (constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeHeight &&
-//            constraint.) {
-//            
-//        }
-//    }
-//}
+- (NSLayoutConstraint *)fixedHeigt {
+    for (NSLayoutConstraint *constraint in self.constraints) {
+        if (constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeHeight &&
+            constraint.secondItem == nil && constraint.secondAttribute == NSLayoutAttributeNotAnAttribute) {
+            return constraint;
+        }
+    }
+    
+    return nil;
+}
 
 @end

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[PCDisplayModel initWithInfo:]:PCDisplayModel.m">
+      </ContextState>
+      <ContextState
+         contextName = "__35-[PCHomeViewController viewDidLoad]_block_invoke43:PCHomeViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PCMyInfoSettingViewController viewDidLoad]:PCMyInfoSettingViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__42+[PCNetworkManager getImageThroughKey:ok:]_block_invoke:PCNetworkManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "__42+[PCNetworkManager getImageThroughKey:ok:]_block_invoke_2:PCNetworkManager.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PCPlaceHolderTextView.h"
 
-@interface PCAddTitleViewController : UIViewController
+@interface PCAddTitleViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *containView;
 @property (weak, nonatomic) IBOutlet UITextField *titleTf;
 @property (weak, nonatomic) IBOutlet PCPlaceHolderTextView *descriptionTV;
+@property (weak, nonatomic) IBOutlet UIImageView *imageview_cover;
 
 @end

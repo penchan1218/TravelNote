@@ -20,40 +20,45 @@
     float iconWidth;
 }
 
+@property (nonatomic, copy) SearchBlock searchBlock;
+
 @end
 
 @implementation PCSearchBar
 
-+ (PCSearchBar *)searchBarInstance {
++ (PCSearchBar *)searchBarInstanceWithSearchBlock:(SearchBlock)block {
     float inset_x = 40.0f;
     float inset_y = 8.0f;
-    PCSearchBar *newInstance = [[PCSearchBar alloc] initWithFrame:CGRectMake(inset_x, inset_y, SCREEN_WIDTH-2*inset_x, 44-2*inset_y)];
+    PCSearchBar *newInstance = [[PCSearchBar alloc] initWithFrame:CGRectMake(inset_x, inset_y, SCREEN_WIDTH-2*inset_x, 44-2*inset_y) withSearchBlock:block];
     return newInstance;
 }
 
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame withSearchBlock:(SearchBlock)block {
     self = [super initWithFrame:frame];
     if (self) {
         width = frame.size.width;
         height = frame.size.height;
         
-        inset_y = 8.0f;
+        inset_y = frame.origin.y;
         iconWidth = height-inset_y*2;
         
         self.userInteractionEnabled = YES;
         self.layer.cornerRadius = height/2;
         self.backgroundColor = HexColor(0x1EA461, 1.0f);
         [self setupSubviews];
+        
+        self.searchBlock = block;
     }
     return self;
 }
 
 - (void)setupSubviews {
-    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(iconWidth*2+10, inset_y, width-iconWidth*3-20, iconWidth)];
+    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(iconWidth*2+10, inset_y/2, width-iconWidth*3-20, iconWidth+inset_y)];
     searchField.font = [UIFont systemFontOfSize:16.0f];
     searchField.textColor = [UIColor whiteColor];
     searchField.delegate = self;
     searchField.backgroundColor = [UIColor clearColor];
+    searchField.returnKeyType = UIReturnKeySearch;
     [self addSubview:searchField];
     __searchField = searchField;
     
@@ -95,6 +100,16 @@
     __placeHolderField.frame = CGRectMake(__searchIconField.frame.origin.x+iconWidth, (height-placeHolderHeight)/2, placeHolderWidth, placeHolderHeight);
 }
 
+- (NSString *)text {
+    return __searchField.text;
+}
+
+- (void)triggleBlock {
+    if (self.searchBlock != nil) {
+        self.searchBlock(self.text);
+    }
+}
+
 #pragma mark - Protocol - text filed
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -102,6 +117,15 @@
         __searchIconField.frame = CGRectMake(iconWidth, __searchIconField.frame.origin.y, iconWidth, iconWidth);
         __placeHolderField.alpha = 0.0f;
     }];
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [self triggleBlock];
+    
+    [textField resignFirstResponder];
     
     return YES;
 }
@@ -115,6 +139,15 @@
     }
     
     return YES;
+}
+
+- (BOOL)isFirstResponder {
+    return __searchField.isFirstResponder;
+}
+
+- (BOOL)resignFirstResponder {
+    [super resignFirstResponder];
+    return __searchField.resignFirstResponder;
 }
 
 @end

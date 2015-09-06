@@ -10,4 +10,6 @@
 
 @interface PCHomeViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
+
 @end

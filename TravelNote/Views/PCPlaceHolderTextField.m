@@ -8,11 +8,18 @@
 
 #import "PCPlaceHolderTextField.h"
 
+@interface PCPlaceHolderTextField () {
+    UIColor *__placeHolderColor;
+    float __inset;
+}
+
+@end
+
 @implementation PCPlaceHolderTextField
 
 - (void)drawPlaceholderInRect:(CGRect)rect {
     NSDictionary *attributesDic = @{NSFontAttributeName: self.font,
-                                    NSForegroundColorAttributeName:UIColorFromRGBA(148, 147, 147, 1.0f)};
+                                    NSForegroundColorAttributeName: __placeHolderColor==nil? UIColorFromRGBA(148, 147, 147, 1.0f): __placeHolderColor};
     CGRect calRect = [self.placeholder boundingRectWithSize:rect.size
                                                     options:NSStringDrawingUsesLineFragmentOrigin
                                                  attributes:attributesDic context:nil];
@@ -24,11 +31,21 @@
 }
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 10, 0);
+    return CGRectInset(bounds, __inset==0? 10: __inset, 0);
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 10, 0);
+    return CGRectInset(bounds, __inset==0? 10: __inset, 0);
+}
+
+- (void)setPlaceholderColor:(UIColor *)color {
+    __placeHolderColor = color;
+    [self setNeedsDisplay];
+}
+
+- (void)setPlaceholderInset:(float)inset {
+    __inset = inset;
+    [self setNeedsDisplay];
 }
 
 @end

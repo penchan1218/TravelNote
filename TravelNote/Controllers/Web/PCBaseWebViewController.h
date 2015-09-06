@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCBaseWebViewController : UIViewController
+typedef enum : NSUInteger {
+    TNWebViewTypeAdjustWhenFinished,
+    TNWebViewTypeAdjustAfterFinished,
+    TNWebViewTypePreviewWorks,
+    TNWebViewTypePreviewTemplates
+} TNWebViewType;
+
+@interface PCBaseWebViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property (nonatomic, copy) NSNumber *temp;
+@property (nonatomic, copy) NSString *articleId;
+@property (nonatomic, copy) NSString *URLString;
+@property (strong, nonatomic) UIImage *coverImg;
+@property (nonatomic, assign) TNWebViewType webViewType;
 
 @end
