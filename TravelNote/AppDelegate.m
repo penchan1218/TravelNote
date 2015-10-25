@@ -57,29 +57,12 @@
 //        [[NSUserDefaults standardUserDefaults] synchronize];
 //    }
     
-//#if DEBUG
-//    [[NSUserDefaults standardUserDefaults] setObject:@"ozebss3SPx7iLkWxMA5doRgKm8dI" forKey:@"user_openid"];
-//    [[NSUserDefaults standardUserDefaults] setObject:@"osnbasg5wmmMVwphIcbFQimwO7ME" forKey:@"user_unionid"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-//    [self setupWhenLogged];
-//#else
-//    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_openid"];
-//    if (userId) {
-//        __weak typeof(self) weakSelf = self;
-//        __weak MBProgressHUD *hud = [self.window HUDForLoadingText:nil];
-//        [PCNetworkManager checkIfBundled:userId ok:^(BOOL isBundled, NSDictionary *data) {
-//            if (isBundled) {
-//                [weakSelf setupWhenLogged];
-//            } else {
-//                [weakSelf setupWhenUnlogged];
-//            }
-//            [hud hide:YES];
-//        }];
-//    } else {
-//        [self setupWhenUnlogged];
-//    }
-//#endif
-    
+#if DEBUG
+    [[NSUserDefaults standardUserDefaults] setObject:@"ozebss3SPx7iLkWxMA5doRgKm8dI" forKey:@"user_openid"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"osnbasg5wmmMVwphIcbFQimwO7ME" forKey:@"user_unionid"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self setupWhenLogged];
+#else
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_openid"];
     if (userId) {
         UIView *lauchView = [[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:nil options:nil][0];
@@ -100,6 +83,28 @@
     } else {
         [self setupWhenUnlogged];
     }
+#endif
+    
+//    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_openid"];
+//    if (userId) {
+//        UIView *lauchView = [[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:nil options:nil][0];
+//        lauchView.frame = [[UIScreen mainScreen] bounds];
+//        [self.window addSubview:lauchView];
+//        
+//        __weak typeof(self) weakSelf = self;
+//        __weak MBProgressHUD *hud = [lauchView HUDForLoadingText:nil];
+//        [PCNetworkManager checkIfBundled:userId ok:^(BOOL isBundled, NSDictionary *data) {
+//            if (isBundled) {
+//                [weakSelf setupWhenLogged];
+//            } else {
+//                [weakSelf setupWhenUnlogged];
+//            }
+//            [hud hide:YES];
+//            [lauchView removeFromSuperview];
+//        }];
+//    } else {
+//        [self setupWhenUnlogged];
+//    }
 
     
     

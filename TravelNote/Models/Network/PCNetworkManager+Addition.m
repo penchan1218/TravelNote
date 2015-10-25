@@ -57,10 +57,12 @@
 //                CGSize compressedImgSize = compressedImg.size;
 //                NSLog(@"return size:%@, return length:%ld\n"
 //                      @"compressed size:%@, compressed length:%ld", NSStringFromCGSize(returnedImgSize), returnedImgLength, NSStringFromCGSize(compressedImgSize), compressedImgLength);
-                [PCDBCenter insertCachedResizedImagesTable:@{@"imgKey": imgKey,
-                                                             @"imgData": UIImageJPEGRepresentation(returnedImg, 1),
-                                                             @"imgSize": NSStringFromCGSize(returnedImgSize),
-                                                             @"cacheTime": [NSDate millisecondsFrom1970ByNow]}];
+                if (key && returnedImg) {
+                    [PCDBCenter insertCachedResizedImagesTable:@{@"imgKey": imgKey,
+                                                                 @"imgData": UIImageJPEGRepresentation(returnedImg, 1),
+                                                                 @"imgSize": NSStringFromCGSize(returnedImgSize),
+                                                                 @"cacheTime": [NSDate millisecondsFrom1970ByNow]}];
+                }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     block(returnedImg, imgKey);
                 });

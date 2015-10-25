@@ -408,10 +408,13 @@ static PCNetworkManager *__shared = nil;
             if (error == nil) {
                 if (block != nil) {
                     UIImage *imgFromNet = [UIImage imageWithData:data];
-                    [PCDBCenter insertCachedImagesTable:@{@"imgKey": key,
-                                                          @"imgData": UIImageJPEGRepresentation(imgFromNet, 1),
-                                                          @"imgSize": NSStringFromCGSize(CGSizeZero),
-                                                          @"cacheTime": [NSDate millisecondsFrom1970ByNow]}];
+                    if (key && imgFromNet) {
+                        [PCDBCenter insertCachedImagesTable:@{@"imgKey": key,
+                                                              @"imgData": UIImageJPEGRepresentation(imgFromNet, 1),
+                                                              @"imgSize": NSStringFromCGSize(CGSizeZero),
+                                                              @"cacheTime": [NSDate millisecondsFrom1970ByNow]}];
+                    }
+                    
                     block(imgFromNet, key);
                 } else {
                     [PCNetworkManager noExecutableBlockLogBy:@"getImageThroughKey"];
